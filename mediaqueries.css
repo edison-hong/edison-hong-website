@@ -1,0 +1,134 @@
+/* bigger size for phones*/
+@media screen and (max-width: 1400px) {
+    #profile {
+      height: 83vh;
+      margin-bottom: 6rem;
+    }
+    .about-containers {
+      flex-wrap: wrap;
+    }
+    #contact,
+    #projects {
+      height: fit-content;
+    }
+  }
+
+/* when the screen size is < 1200 px, the desktop navigation is going to disappear*/
+  @media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none; /* desktop navigation disappears */ 
+    }
+    #hamburger-nav {
+      display: flex; 
+    }
+    #experience,
+    .experience-details-container {
+      margin-top: 2rem;
+    }
+
+    /* stacked top of one another */ 
+    #profile,
+    .section-container {
+      display: block;
+    }
+
+    /* arrow disappears when it gets to 1200px */ 
+    .arrow {
+      display: none;
+    }
+
+    /* adjust height to fit content*/ 
+    section,
+    .section-container {
+      height: fit-content;
+    }
+
+    /* seperated but still not looks right */ 
+    section {
+      margin: 0 5%;
+    }
+
+    /* this resizes the picture for phone*/ 
+    .section__pic-container {
+      width: 275px;
+      height: 275px;
+      margin: 0 auto 2rem;
+    }
+    .about-containers {
+      margin-top: 0;
+    }
+  }
+  
+  /* bascially adjusts for phones and makes sure that the profile 
+   is not going out of bounds, also resizes different elements to fit 
+   looking at the phone*/ 
+  @media screen and (max-width: 600px) {
+    #contact,
+    footer {
+      height: 40vh;
+    }
+    #profile {
+      height: 83vh;
+      margin-bottom: 0;
+    }
+    article {
+      font-size: 1rem;
+    }
+    footer nav {
+      height: fit-content;
+      margin-bottom: 2rem;
+    }
+
+    /* wrapping does a lot */ 
+    .about-containers,
+    .contact-info-upper-container,
+    .btn-container {
+      flex-wrap: wrap;
+    }
+    .contact-info-container {
+      margin: 0;
+    }
+    .contact-info-container p,
+    .nav-links li a {
+      font-size: 1rem;
+    }
+
+    /* adjusts the sub tutle on experience */ 
+    .experience-sub-title {
+      font-size: 1.25rem;
+    }
+
+    /* makes logo a bit smaller */ 
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    /* flex direction of column makes it better */ 
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    /* centers it and readjusts everything */ 
+    .section__pic-container {
+      width: auto;
+      height: 46vw;
+      justify-content: center;
+    }
+
+    /* makes section text smaller */ 
+    .section__text__p2 {
+      font-size: 1.25rem;
+    }
+
+    /* title is also smaller */
+    .title {
+      font-size: 2rem;
+    }
+
+    /* makes it better on mobile */ 
+    .text-container {
+      text-align: justify;
+    }
+  }

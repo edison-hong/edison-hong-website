@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> <!-- includes links connected to the website-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" /> <!-- This links style.css to this document -->
+    <link rel="stylesheet" href="mediaqueries.css" /> <!-- This links mediaquieries.css to this document -->
+  </head>
+  <body>
+    <nav id="desktop-nav"> <!-- Top Bar-->
+      <div class="logo">Edison Hong</div> <!-- Top Left Name Logo -->
+      
+      <!-- Navigation at the top; there are 4 categories
+        when clicked will lead to certain part of the page-->
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+<!-- KEEP IN MIND: -->
+<!-- You can use bootstrap in the future to import better icons than ones used here-->
+
+    <!-- This is the hamburger menu or 3 line dropdown to access different pages-->
+    <nav id="hamburger-nav"> <!-- 3 line dropdown menu connected to the JS-->
+      <div class="logo">Edison Hong</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()"> <!-- This is attatched to the JS to open the menu-->
+          <span></span> <!-- Line 1 hamburger menu-->
+          <span></span> <!-- Line 2 hamburger menu-->
+          <span></span> <!-- Line 3 hamburger menu-->
+        </div>
+        <div class="menu-links"> <!-- actual links when opened; "onclick" means it can open and close-->
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PROFILE SECTION */ --> 
+    <section id="profile">
+       <!-- This is bascially the profile picture that comes up as soon as I open  -->
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Edison Hong profile picture" />
+      </div>
+      <!-- This section entails my introduction and fonts -->
+      <div class="section__text">
+        <p class="section__text__p1">Hello I am</p> <!-- p: intro-->
+        <h1 class="title">Edison Hong</h1> <!-- heading for my big name-->
+        <p class="section__text__p2">Georgia Tech Student</p>
+    
+    <!-- BUTTONS! */ --> 
+        <!-- This is the button for resume-->
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Resume.pdf')" 
+          > <!-- Resume button to pop up (keep in mind to match location of files)-->
+            Resume
+          </button>
+
+          <!-- Button 2 that goes to the contact info section of website-->
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+
+        <!--This links likedin and github profiles with clickable icon-->
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn profile"
+            class="icon"
+            onclick="location.href='//www.linkedin.com/in/edisonhong/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="Github profile"
+            class="icon"
+            onclick="location.href='//github.com/edison-hong'"
+          />
+        </div>
+      </div>
+
+    <!-- ABOUT SECTION */ --> 
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+    <!-- Profile Picture-->
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+    <!-- About details-->
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>Frontend Development</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+            <!-- Education -->
+              <h3>Education</h3>
+              <p>A.S. Associates Degree</p> 
+              <!-- To put more you could do "<p>A.S CS <br /> B.S CS </p>" this way the break, "br", is under it"-->
+            </div>
+          </div>
+
+          <!-- This is just the bio-->
+          <div class="text-container">
+            <p>
+                I'm an undergraduate Computer Science student at the Georgia Institute of Technology, 
+                specializing in Intelligence and Information Internetworks. 
+                After transferring and graduating from Delaware County Community College, 
+                I'm on track to graduate in May 2026. Passionate about unraveling the intricacies of code and its relationship with 
+                arrays and data, my goal is to automate functions that enhance data accuracy across diverse fields. 
+                Currently exploring internship opportunities and research collaborations to further develop and refine my skills in this exciting 
+                intersection of technology and information. 
+                Let's connect and explore the boundless possibilities of coding and data together!
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Arrow on the side that takes user to the next page or down-->
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'" 
+      />
+      <!-- This bascially says that if clicked it will link to the experience page-->
+
+    <!--EXPERIENCE SECTION-->
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experiences</h1>
+    
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <!-- This basically contains all of the elements in the box for my experience-->
+            <div class="article-container">
+              <article>
+                <!--Checkmark image insert-->
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <!--Language, Level-->
+                <div>
+                  <h3>HTML</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+
+              <!-- RESUSE!! ^^ for future instances when gained code languages or skills
+                ALL you change is the TEXT-->
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          
+          <!-- THIS IS TO MAKE A SECOND BOX (optional)
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>PostgreSQL</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Node JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Express JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      --> 
+
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+   
+    <!--PROJECTS SECTION-->
+    </section>
+    <!--PROJECTS SECTION-->
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+        
+        <!-- Project 1-->
+          <div class="details-container color-container">
+            <div class="article-container">
+            <!--Project 1 Image-->
+              <img
+                src="./assets/project-1.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+
+            <h2 class="experience-sub-title project-title">Flight Delay Chrome Extension</h2>
+            
+            <!-- OPTIONAL FOR FUTURE LINK USES! 
+            This is the first button to link to GitHub
+            Both buttons have hover effect because we have already made all buttons have same effect
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+            
+            Second button under the same class
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+              -->
+            </div>
+          </div>
+    
+
+          <!-- Future Project 2 (KEEP REUSING FOR MORE)-->
+          <!-- 
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-2.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          --> 
+
+    <!--Arrow for each section; remember-->
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    
+    <!--CONTACT SECTION-->
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Connect With Me</h1>
+      
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+        <!-- Email image icon-->
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <!--When people click the button it will email it. thats why it has mailto: instead of a blank-->
+          <p><a href="mailto:eddyheng6mail@gmail.com">eddyheng6@gmail.com</a></p>
+        </div>
+
+        <!--Linkedin icon picture-->
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/edisonhong/">LinkedIn</a></p>
+        </div>
+      </div>
+
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Edison Hong. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script> <!-- This links script.js to this document -->
+  </body>
+</html>
