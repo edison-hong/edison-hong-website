@@ -1,4 +1,5 @@
 /* GENERAL */
+/* TIP: DO NOT FORGET DIVS; can fuck up project */ 
 
 /*  This is a downloaded google font with different fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -19,62 +20,70 @@ body {
 /* when link clicked it will go to page smoothly and
  not direclty pop to the certain page out of nowhere */ 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* if you want it to just pop to it then put "none */ 
 }
 
+/* color of all paragraphs or "p" elements */ 
 p {
   color: rgb(85, 85, 85);
 }
 
 /* TRANSITION */
 
+
+/* a = all the links, .btn = button; transitions between two states 
+and not instant */ 
 a,
 .btn {
   transition: all 300ms ease;
 }
 
 /* DESKTOP NAV */
-
-nav,
+/* targeting the nav itself from "nav id="desktop-nav" which is the navigation */ 
+nav,/* targets nav links */ 
 .nav-links {
-  display: flex;
+  display: flex; /* basically allows any manipulation of elements;
+                 before they were all next to eachother, now we can manipulate them in their container */ 
 }
 
 nav {
   justify-content: space-around;
   align-items: center;
-  height: 17vh;
+  height: 17vh; /* 100vh takes up whole screen; 17vh takes up only 17% of the screen */ 
 }
 
 .nav-links {
-  gap: 2rem;
-  list-style: none;
-  font-size: 1.5rem;
+  gap: 2rem; /* puts space in between links */ 
+  list-style: none; /* removes bullet points */ 
+  font-size: 1.5rem; /* rem = pixels but like it; this increases font size*/ 
 }
 
+/* styles the links */ 
 a {
   color: black;
   text-decoration: none;
   text-decoration-color: white;
 }
 
+/* when hovering over the links; change to grey */ 
 a:hover {
-  color: grey;
+  color: grey; 
   text-decoration: underline;
-  text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
+  text-underline-offset: 1rem; /* space out underline with the word-link */ 
+  text-decoration-color: rgb(181, 181, 181); /* color of the underline after hovered */ 
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 2rem; /* makes the name Edison Hong bigger */ 
 }
 
 .logo:hover {
-  cursor: default;
+  cursor: default; /* makes the logo Edison Hong unhoverable */ 
 }
 
 /* HAMBURGER MENU */
 
+/* when in a desktop view; hamburger does not show */ 
 #hamburger-nav {
   display: none;
 }
@@ -93,13 +102,15 @@ a:hover {
   cursor: pointer;
 }
 
+/* line of the hamburger and the dimensions of it */
 .hamburger-icon span {
   width: 100%;
   height: 2px;
   background-color: black;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3 ease-in-out; /* makes hamburger menu turn into an X */
 }
 
+/* actual links seeing when hamburger opened*/ 
 .menu-links {
   position: absolute;
   top: 100%;
@@ -111,6 +122,7 @@ a:hover {
   transition: all 0.3 ease-in-out;
 }
 
+/* all link styles for menu and alignment*/
 .menu-links a {
   display: block;
   padding: 10px;
@@ -121,18 +133,23 @@ a:hover {
   transition: all 0.3 ease-in-out;
 }
 
+/* removes bulletpoints in menu links*/
 .menu-links li {
   list-style: none;
 }
 
+/* max height of 300px for how big the area is*/
 .menu-links.open {
   max-height: 300px;
 }
 
+/* first span element; transforming the line by rotating it into an X and 
+moving it slightly in both x and y directions*/
 .hamburger-icon.open span:first-child {
   transform: rotate(45deg) translate(10px, 5px);
 }
 
+/* targets second line which means removing the first and second line completely*/ 
 .hamburger-icon.open span:nth-child(2) {
   opacity: 0;
 }
@@ -156,11 +173,11 @@ a:hover {
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
-  height: 96vh;
+  padding-top: 4vh; /* creates space between each section */ 
+  height: 96vh; /* makes up 100 vh total */ 
   margin: 0 10rem;
   box-sizing: border-box;
-  min-height: fit-content;
+  min-height: fit-content; /* ensures stuff is not overlapping each other */
 }
 
 .section-container {
@@ -169,6 +186,7 @@ section {
 
 /* PROFILE SECTION */
 
+/* sets all elements and styles in the class of profile*/
 #profile {
   display: flex;
   justify-content: center;
@@ -176,6 +194,7 @@ section {
   height: 80vh;
 }
 
+/* adjusts the image of the profile*/
 .section__pic-container {
   display: flex;
   height: 400px;
@@ -183,29 +202,35 @@ section {
   margin: auto 0;
 }
 
+/* aligns all section text */
 .section__text {
   align-self: center;
   text-align: center;
 }
 
+/* aligns the "p"s in the section text and their font weight*/
 .section__text p {
   font-weight: 600;
 }
 
+/* aligns Hello I am*/
 .section__text__p1 {
   text-align: center;
 }
 
+/* aligns Georgia Tech */
 .section__text__p2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
+/* this formats the Edison Hong */ 
 .title {
   font-size: 3rem;
   text-align: center;
 }
 
+/* this shows adjustment of where the LinkedIn and Github should be */ 
 #socials-container {
   display: flex;
   justify-content: center;
@@ -215,19 +240,21 @@ section {
 
 /* ICONS */
 
+/* the two icons of linkedin and Github are shrunken and centered */ 
 .icon {
   cursor: pointer;
   height: 2rem;
 }
 
 /* BUTTONS */
-
+/* shows how big the container of the buttons should be */ 
 .btn-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
+/* size of button */ 
 .btn {
   font-weight: 600;
   transition: all 300ms ease;
@@ -236,40 +263,48 @@ section {
   border-radius: 2rem;
 }
 
+/* colors of the font of the buttons */ 
 .btn-color-1,
 .btn-color-2 {
   border: rgb(53, 53, 53) 0.1rem solid;
 }
 
+/* when hovered, pointer becomes cursor */ 
 .btn-color-1:hover,
 .btn-color-2:hover {
   cursor: pointer;
 }
 
+/* both buttons have the background being gray/black and main font white */ 
 .btn-color-1,
 .btn-color-2:hover {
   background: rgb(53, 53, 53);
   color: white;
 }
 
+/* when hovered over resume the blackground turns black */ 
 .btn-color-1:hover {
   background: rgb(0, 0, 0);
 }
 
+/* there is no background because it will default to gray */ 
 .btn-color-2 {
   background: none;
 }
 
+/* when hovered over the text becomes white */ 
 .btn-color-2:hover {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
+/* gap between the buttons is 1 rem */ 
 .btn-container {
   gap: 1rem;
 }
 
 /* ABOUT SECTION */
 
+/* relative position of all */ 
 #about {
   position: relative;
 }
@@ -285,21 +320,27 @@ section {
   flex-direction: column;
 }
 
+/* flexes both containers for movability*/ 
 .about-containers,
 .about-details-container {
   display: flex;
 }
 
+/* picture border radius = defines how curved picture corners should be*/ 
 .about-pic {
   border-radius: 2rem;
 }
 
+/* basically places the arrow -5rem from the right side of page
+it also places 2.5rem up from the bottom*/
 .arrow {
   position: absolute;
   right: -5rem;
   bottom: 2.5rem;
 }
 
+/* This is the bio that i have. 
+Just put some padding and align it with font color to make it look right*/
 .details-container {
   padding: 1.5rem;
   flex: 1;
@@ -310,11 +351,13 @@ section {
   text-align: center;
 }
 
+/* makes picture have space/gap from the text and reduces the height */
 .section-container {
   gap: 4rem;
   height: 80%;
 }
 
+/* makes picture container a set size */
 .section__pic-container {
   height: 400px;
   width: 400px;
@@ -323,10 +366,12 @@ section {
 
 /* EXPERIENCE SECTION */
 
+/* this makes sure that the arrow stays on the bottom right*/
 #experience {
   position: relative;
 }
 
+/* styling "Front Development' font */
 .experience-sub-title {
   color: rgb(85, 85, 85);
   font-weight: 600;
@@ -334,12 +379,18 @@ section {
   margin-bottom: 2rem;
 }
 
+/* free movement */
 .experience-details-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
+/* when it gets too big make sure to wrap the text so that 
+ it looks more aesthetic (does not go out of container)
+ 
+ also includes black border
+ */
 .article-container {
   display: flex;
   text-align: initial;
@@ -349,6 +400,7 @@ section {
   justify-content: space-around;
 }
 
+/* spaced out words and images*/ 
 article {
   display: flex;
   width: 10rem;
@@ -356,32 +408,37 @@ article {
   gap: 0.5rem;
 }
 
+/* not clickable images */
 article .icon {
   cursor: default;
 }
 
 /* PROJECTS SECTION */
-
+/* this is so the arrow can be on the bottom right*/ 
 #projects {
   position: relative;
 }
 
+/* gives the project a border */ 
 .color-container {
   border-color: rgb(163, 163, 163);
   background: rgb(250, 250, 250);
 }
 
+/* gives space and height to the project images*/ 
 .project-img {
   border-radius: 2rem;
   width: 90%;
   height: 90%;
 }
 
+/* title is black*/ 
 .project-title {
   margin: 1rem;
   color: black;
 }
 
+/* this creates the border? */ 
 .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
@@ -389,6 +446,7 @@ article .icon {
 
 /* CONTACT */
 
+/* how tall it should be for the contact container*/ 
 #contact {
   display: flex;
   justify-content: center;
@@ -396,6 +454,7 @@ article .icon {
   height: 70vh;
 }
 
+/* the container or border box of where the buttons are for linkedin and email*/ 
 .contact-info-upper-container {
   display: flex;
   justify-content: center;
@@ -415,20 +474,24 @@ article .icon {
   margin: 1rem;
 }
 
+/* make font size bigger */ 
 .contact-info-container p {
   font-size: larger;
 }
 
+/* not clickable image */ 
 .contact-icon {
   cursor: default;
 }
 
+/* also not clikcable and adjusts the area to make it bigger for icon*/ 
 .email-icon {
   height: 2.5rem;
 }
 
 /* FOOTER SECTION */
 
+/* how big the footer is and the margins and alignment of where it should be */ 
 footer {
   height: 26vh;
   margin: 0 1rem;
