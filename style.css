@@ -143,69 +143,92 @@
   }
 }
 
-/* Maroon 5 Style Swirl Animations */
-@keyframes album-swirl {
+/* 2000s Style Album Glow Effect */
+@keyframes album-glow {
   0% {
-    transform: rotate(0deg) scale(1);
     box-shadow: 
-      0 0 10px rgba(212, 165, 116, 0.3),
-      0 0 20px rgba(212, 165, 116, 0.2),
-      0 0 30px rgba(212, 165, 116, 0.1);
-  }
-  25% {
-    transform: rotate(90deg) scale(1.05);
-    box-shadow: 
-      0 0 15px rgba(212, 165, 116, 0.5),
-      0 0 30px rgba(212, 165, 116, 0.3),
-      0 0 45px rgba(212, 165, 116, 0.2);
+      0 0 5px rgba(212, 165, 116, 0.3),
+      0 0 10px rgba(212, 165, 116, 0.2);
   }
   50% {
-    transform: rotate(180deg) scale(1.1);
     box-shadow: 
-      0 0 20px rgba(212, 165, 116, 0.7),
-      0 0 40px rgba(212, 165, 116, 0.4),
-      0 0 60px rgba(212, 165, 116, 0.3);
-  }
-  75% {
-    transform: rotate(270deg) scale(1.05);
-    box-shadow: 
-      0 0 15px rgba(212, 165, 116, 0.5),
-      0 0 30px rgba(212, 165, 116, 0.3),
-      0 0 45px rgba(212, 165, 116, 0.2);
+      0 0 15px rgba(212, 165, 116, 0.6),
+      0 0 25px rgba(212, 165, 116, 0.4),
+      0 0 35px rgba(212, 165, 116, 0.2);
   }
   100% {
-    transform: rotate(360deg) scale(1);
     box-shadow: 
-      0 0 10px rgba(212, 165, 116, 0.3),
-      0 0 20px rgba(212, 165, 116, 0.2),
-      0 0 30px rgba(212, 165, 116, 0.1);
+      0 0 5px rgba(212, 165, 116, 0.3),
+      0 0 10px rgba(212, 165, 116, 0.2);
   }
 }
 
-@keyframes swirl-particles {
+@keyframes mini-swirl {
   0% {
     opacity: 0;
-    transform: rotate(0deg) translateX(0px) scale(0);
+    transform: translate(-50%, -50%) rotate(0deg) translateX(8px) scale(0);
   }
-  20% {
+  25% {
     opacity: 1;
-    transform: rotate(72deg) translateX(15px) scale(0.8);
+    transform: translate(-50%, -50%) rotate(90deg) translateX(12px) scale(1);
   }
-  40% {
+  50% {
     opacity: 0.8;
-    transform: rotate(144deg) translateX(25px) scale(1);
+    transform: translate(-50%, -50%) rotate(180deg) translateX(16px) scale(0.8);
   }
-  60% {
-    opacity: 0.6;
-    transform: rotate(216deg) translateX(30px) scale(0.9);
-  }
-  80% {
-    opacity: 0.3;
-    transform: rotate(288deg) translateX(35px) scale(0.7);
+  75% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) rotate(270deg) translateX(20px) scale(0.6);
   }
   100% {
     opacity: 0;
-    transform: rotate(360deg) translateX(40px) scale(0);
+    transform: translate(-50%, -50%) rotate(360deg) translateX(24px) scale(0);
+  }
+}
+
+@keyframes mini-swirl-2 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(180deg) translateX(6px) scale(0);
+  }
+  25% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) rotate(270deg) translateX(10px) scale(0.9);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) rotate(360deg) translateX(14px) scale(0.7);
+  }
+  75% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) rotate(450deg) translateX(18px) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(540deg) translateX(22px) scale(0);
+  }
+}
+
+@keyframes mini-swirl-3 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg) translateX(4px) scale(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(180deg) translateX(8px) scale(1);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) rotate(270deg) translateX(12px) scale(0.8);
+  }
+  90% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) rotate(360deg) translateX(16px) scale(0.4);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(450deg) translateX(20px) scale(0);
   }
 }
 
@@ -1027,7 +1050,7 @@ html {
 
 /* Ultra-Realistic 3D Glass Hover Effects */
 .block-item:hover {
-  transform: perspective(120px) rotateX(-15deg) rotateY(15deg) scale(1.6) translateZ(40px);
+  transform: perspective(120px) rotateX(-8deg) rotateY(8deg) scale(1.4) translateZ(15px);
   border-color: #d4a574;
   box-shadow: 
     /* Dramatic outer glow with 3D depth */
@@ -1429,35 +1452,47 @@ html {
 }
 
 .album-thumb-item:hover .album-thumb-select {
-  animation: album-swirl 2s ease-in-out;
+  animation: album-glow 1.5s ease-in-out infinite;
 }
 
 .album-thumb-item:hover::before {
-  content: '';
+  content: '✦';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 4px;
-  height: 4px;
-  background: radial-gradient(circle, #d4a574 0%, transparent 70%);
-  border-radius: 50%;
-  animation: swirl-particles 2s linear infinite;
+  color: #d4a574;
+  font-size: 8px;
+  animation: mini-swirl 1.2s linear infinite;
   pointer-events: none;
   z-index: 10;
 }
 
 .album-thumb-item:hover::after {
-  content: '';
+  content: '●';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3px;
-  height: 3px;
-  background: radial-gradient(circle, #e6b885 0%, transparent 70%);
-  border-radius: 50%;
-  animation: swirl-particles 2s linear infinite 0.5s;
+  color: #e6b885;
+  font-size: 6px;
+  animation: mini-swirl-2 1.5s linear infinite;
   pointer-events: none;
   z-index: 10;
+}
+
+.album-thumb-item:hover {
+  transform: scale(1.1);
+}
+
+.album-thumb-item:hover .album-thumb-select::before {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #c19860;
+  font-size: 5px;
+  animation: mini-swirl-3 1.8s linear infinite;
+  pointer-events: none;
+  z-index: 11;
 }
 
 .album-thumb-select {
@@ -1809,7 +1844,7 @@ html {
   }
   
   .block-item:hover {
-    transform: perspective(120px) rotateX(-4deg) rotateY(4deg) scale(1.3) translateZ(15px);
+    transform: perspective(120px) rotateX(-4deg) rotateY(4deg) scale(1.2) translateZ(8px);
   }
   
   .sidebar {
