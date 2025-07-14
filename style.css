@@ -577,10 +577,10 @@ html {
 
 /* Contact section background */
 #contact::before {
-  background-image: url('./assets/new-profile-pic.jpg');
+  background-image: url('./GCH/252bf32ffc1de07fad09e5244b7cb109.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .content-box {
@@ -612,6 +612,488 @@ html {
   margin-bottom: 20px;
   letter-spacing: 1px;
   font-family: 'Remedy', Arial, sans-serif;
+}
+
+/* About Layout */
+.about-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.about-layout .content-box {
+  flex: 1;
+  max-width: 500px;
+}
+
+/* Glowing Block Window */
+.block-window {
+  flex: 0 0 auto;
+  width: 200px;
+  background: rgba(45, 15, 15, 0.9);
+  border: 2px solid #d4a574;
+  border-radius: 8px;
+  padding: 15px;
+  backdrop-filter: blur(5px);
+  position: relative;
+}
+
+.block-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.block-item {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* 3D Glass Effect Base */
+  box-shadow: 
+    /* Outer shadow for depth */
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    /* Inner shadow for glass depth */
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+    inset 1px 0 1px rgba(255, 255, 255, 0.2),
+    inset -1px 0 1px rgba(0, 0, 0, 0.1);
+  /* 3D Transform */
+  transform: perspective(100px) rotateX(2deg) rotateY(2deg);
+  transform-style: preserve-3d;
+}
+
+/* Ultra-Realistic 3D Glass Blocks matching the original image */
+.block-1 { 
+  background: 
+    /* Glass surface reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.1) 100%),
+    /* Dark crack pattern */
+    linear-gradient(25deg, transparent 45%, rgba(0,0,0,0.6) 46%, rgba(0,0,0,0.4) 48%, transparent 50%),
+    linear-gradient(-70deg, transparent 60%, rgba(0,0,0,0.3) 62%, transparent 65%),
+    /* Depth gradient */
+    radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 70%, rgba(0,0,0,0.3) 0%, transparent 40%),
+    /* Base deep brown */
+    linear-gradient(145deg, #1a0d08 0%, #2b1810 30%, #3d2418 70%, #2b1810 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 80% 80%, 80% 80%, 100% 100%;
+}
+
+.block-2 { 
+  background: 
+    /* Glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 25%, transparent 75%, rgba(255,255,255,0.2) 100%),
+    /* Golden marble veining */
+    linear-gradient(40deg, transparent 35%, rgba(218,165,32,0.4) 37%, rgba(255,215,0,0.2) 39%, transparent 42%),
+    linear-gradient(-30deg, transparent 65%, rgba(139,115,85,0.3) 67%, transparent 70%),
+    /* Crystalline structure */
+    radial-gradient(ellipse at 25% 25%, rgba(255,255,255,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 75%, rgba(139,115,85,0.2) 0%, transparent 50%),
+    /* Base golden brown */
+    linear-gradient(145deg, #6b5d45 0%, #8b7355 25%, #a68964 50%, #8b7355 75%, #6b5d45 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 60% 60%, 60% 60%, 100% 100%;
+}
+
+/* Ultra-realistic 3D glass blocks matching exact image colors and textures */
+.block-3 { 
+  background: 
+    /* Glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.15) 100%),
+    /* Red-rust texture with deep cracks */
+    linear-gradient(55deg, transparent 40%, rgba(139,69,19,0.5) 42%, rgba(160,82,45,0.3) 44%, transparent 47%),
+    linear-gradient(-35deg, transparent 70%, rgba(0,0,0,0.4) 72%, transparent 75%),
+    /* Depth shadows */
+    radial-gradient(ellipse at 20% 80%, rgba(0,0,0,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    /* Base rust red */
+    linear-gradient(145deg, #6b2c2c 0%, #8b3a3a 25%, #a04545 50%, #8b3a3a 75%, #6b2c2c 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 70% 70%, 70% 70%, 100% 100%;
+}
+
+.block-4 { 
+  background: 
+    /* Bright glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 15%, transparent 85%, rgba(255,255,255,0.3) 100%),
+    /* Bright orange crystalline structure */
+    linear-gradient(45deg, transparent 30%, rgba(255,215,0,0.4) 32%, rgba(255,140,0,0.3) 35%, transparent 38%),
+    linear-gradient(-60deg, transparent 65%, rgba(255,127,80,0.3) 67%, transparent 70%),
+    /* Bright highlights */
+    radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.5) 0%, transparent 30%),
+    radial-gradient(ellipse at 70% 70%, rgba(255,140,0,0.3) 0%, transparent 40%),
+    /* Base bright orange */
+    linear-gradient(145deg, #b8571a 0%, #d2691e 25%, #ff7f50 50%, #d2691e 75%, #b8571a 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 60% 60%, 60% 60%, 100% 100%;
+}
+
+.block-5 { 
+  background: 
+    /* Golden glass brilliance */
+    linear-gradient(135deg, rgba(255,255,255,0.7) 0%, transparent 12%, transparent 88%, rgba(255,255,255,0.4) 100%),
+    /* Golden crystalline veins */
+    linear-gradient(30deg, transparent 25%, rgba(255,215,0,0.5) 27%, rgba(255,191,0,0.4) 30%, transparent 33%),
+    linear-gradient(-45deg, transparent 60%, rgba(218,165,32,0.4) 62%, transparent 65%),
+    /* Golden highlights */
+    radial-gradient(ellipse at 35% 35%, rgba(255,255,255,0.6) 0%, transparent 25%),
+    radial-gradient(ellipse at 65% 65%, rgba(255,215,0,0.4) 0%, transparent 35%),
+    /* Base golden yellow */
+    linear-gradient(145deg, #b8941a 0%, #daa520 25%, #ffd700 50%, #daa520 75%, #b8941a 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 50% 50%, 50% 50%, 100% 100%;
+}
+
+.block-6 { 
+  background: 
+    /* Glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 22%, transparent 78%, rgba(255,255,255,0.2) 100%),
+    /* Terra cotta grain */
+    linear-gradient(20deg, transparent 45%, rgba(139,69,19,0.4) 47%, transparent 50%),
+    linear-gradient(-70deg, transparent 75%, rgba(0,0,0,0.3) 77%, transparent 80%),
+    /* Earthy depth */
+    radial-gradient(ellipse at 25% 75%, rgba(160,82,45,0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 75% 25%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    /* Base terra cotta */
+    linear-gradient(145deg, #a3652f 0%, #cd853f 25%, #d2691e 50%, #cd853f 75%, #a3652f 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 80% 80%, 80% 80%, 100% 100%;
+}
+
+.block-7 { 
+  background: 
+    /* Cream glass luminosity */
+    linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 18%, transparent 82%, rgba(255,255,255,0.3) 100%),
+    /* Subtle aging marks */
+    linear-gradient(60deg, transparent 70%, rgba(139,69,19,0.15) 72%, transparent 75%),
+    linear-gradient(-30deg, transparent 80%, rgba(0,0,0,0.08) 82%, transparent 85%),
+    /* Cream highlights */
+    radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.4) 0%, transparent 35%),
+    radial-gradient(ellipse at 60% 60%, rgba(245,245,220,0.3) 0%, transparent 40%),
+    /* Base cream */
+    linear-gradient(145deg, #e5e5bf 0%, #f5f5dc 25%, #fffff0 50%, #f5f5dc 75%, #e5e5bf 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 70% 70%, 70% 70%, 100% 100%;
+}
+
+.block-8 { 
+  background: 
+    /* Metallic glass sheen */
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 25%, transparent 75%, rgba(255,255,255,0.15) 100%),
+    /* Metallic grain */
+    linear-gradient(45deg, transparent 40%, rgba(119,136,153,0.3) 42%, transparent 45%),
+    linear-gradient(-50deg, transparent 65%, rgba(0,0,0,0.4) 67%, transparent 70%),
+    /* Metallic depth */
+    radial-gradient(ellipse at 30% 70%, rgba(0,0,0,0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    /* Base charcoal */
+    linear-gradient(145deg, #2a383f 0%, #36454f 25%, #2f4f4f 50%, #36454f 75%, #2a383f 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 80% 80%, 80% 80%, 100% 100%;
+}
+
+.block-9 { 
+  background: 
+    /* Dark glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.1) 100%),
+    /* Coffee bean texture */
+    linear-gradient(35deg, transparent 50%, rgba(139,69,19,0.4) 52%, transparent 55%),
+    linear-gradient(-40deg, transparent 80%, rgba(0,0,0,0.3) 82%, transparent 85%),
+    /* Dark depth */
+    radial-gradient(ellipse at 25% 75%, rgba(0,0,0,0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 25%, rgba(75,47,31,0.3) 0%, transparent 45%),
+    /* Base espresso */
+    linear-gradient(145deg, #2a1a10 0%, #3c2415 25%, #4b2f1f 50%, #3c2415 75%, #2a1a10 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 80% 80%, 80% 80%, 100% 100%;
+}
+
+.block-10 { 
+  background: 
+    /* Glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.2) 100%),
+    /* Burnt sienna texture */
+    linear-gradient(50deg, transparent 45%, rgba(139,69,19,0.5) 47%, transparent 50%),
+    linear-gradient(-35deg, transparent 70%, rgba(0,0,0,0.3) 72%, transparent 75%),
+    /* Earthy depth */
+    radial-gradient(ellipse at 35% 65%, rgba(160,82,45,0.4) 0%, transparent 45%),
+    radial-gradient(ellipse at 65% 35%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    /* Base burnt sienna */
+    linear-gradient(145deg, #7a3f2a 0%, #a0522d 25%, #cd853f 50%, #a0522d 75%, #7a3f2a 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 75% 75%, 75% 75%, 100% 100%;
+}
+
+.block-11 { 
+  background: 
+    /* Bright amber glass */
+    linear-gradient(135deg, rgba(255,255,255,0.7) 0%, transparent 10%, transparent 90%, rgba(255,255,255,0.4) 100%),
+    /* Amber crystallization */
+    linear-gradient(25deg, transparent 20%, rgba(255,215,0,0.5) 22%, rgba(255,191,0,0.4) 25%, transparent 28%),
+    linear-gradient(-55deg, transparent 70%, rgba(255,140,0,0.3) 72%, transparent 75%),
+    /* Bright amber highlights */
+    radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.6) 0%, transparent 20%),
+    radial-gradient(ellipse at 70% 70%, rgba(255,191,0,0.5) 0%, transparent 30%),
+    /* Base amber */
+    linear-gradient(145deg, #cc9900 0%, #ffbf00 25%, #ffd700 50%, #ffbf00 75%, #cc9900 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 50% 50%, 50% 50%, 100% 100%;
+}
+
+.block-12 { 
+  background: 
+    /* Copper glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.2) 100%),
+    /* Copper patina */
+    linear-gradient(30deg, transparent 50%, rgba(139,69,19,0.4) 52%, transparent 55%),
+    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.3) 77%, transparent 80%),
+    /* Copper depth */
+    radial-gradient(ellipse at 40% 60%, rgba(184,115,51,0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.2) 0%, transparent 40%),
+    /* Base copper */
+    linear-gradient(145deg, #8b5a2b 0%, #b87333 25%, #cd853f 50%, #b87333 75%, #8b5a2b 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 70% 70%, 70% 70%, 100% 100%;
+}
+
+.block-13 { 
+  background: 
+    /* Wood glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 25%, transparent 75%, rgba(255,255,255,0.15) 100%),
+    /* Wood grain */
+    linear-gradient(5deg, transparent 40%, rgba(139,69,19,0.5) 42%, rgba(112,66,20,0.4) 45%, transparent 48%),
+    linear-gradient(-85deg, transparent 60%, rgba(0,0,0,0.3) 62%, transparent 65%),
+    /* Wood depth */
+    radial-gradient(ellipse at 20% 80%, rgba(0,0,0,0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(139,69,19,0.3) 0%, transparent 45%),
+    /* Base mahogany */
+    linear-gradient(145deg, #4a2c0a 0%, #704214 25%, #8b4513 50%, #704214 75%, #4a2c0a 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 80% 80%, 80% 80%, 100% 100%;
+}
+
+.block-14 { 
+  background: 
+    /* Ivory glass luminosity */
+    linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 15%, transparent 85%, rgba(255,255,255,0.3) 100%),
+    /* Aged ivory marks */
+    linear-gradient(65deg, transparent 75%, rgba(139,69,19,0.12) 77%, transparent 80%),
+    linear-gradient(-25deg, transparent 85%, rgba(0,0,0,0.05) 87%, transparent 90%),
+    /* Ivory highlights */
+    radial-gradient(ellipse at 45% 45%, rgba(255,255,255,0.4) 0%, transparent 35%),
+    radial-gradient(ellipse at 55% 55%, rgba(255,253,208,0.3) 0%, transparent 40%),
+    /* Base ivory */
+    linear-gradient(145deg, #f5f5dc 0%, #fffdd0 25%, #fffff0 50%, #f5f5dc 75%, #f0f0d0 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 70% 70%, 70% 70%, 100% 100%;
+}
+
+.block-15 { 
+  background: 
+    /* Stone glass reflection */
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 25%, transparent 75%, rgba(255,255,255,0.15) 100%),
+    /* Stone mineral veins */
+    linear-gradient(40deg, transparent 35%, rgba(119,136,153,0.3) 37%, transparent 40%),
+    linear-gradient(-50deg, transparent 65%, rgba(0,0,0,0.3) 67%, transparent 70%),
+    /* Stone depth */
+    radial-gradient(ellipse at 30% 70%, rgba(0,0,0,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(119,136,153,0.2) 0%, transparent 45%),
+    /* Base stone gray */
+    linear-gradient(145deg, #5a6b73 0%, #778899 25%, #696969 50%, #778899 75%, #5a6b73 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 80% 80%, 80% 80%, 100% 100%;
+}
+
+.block-16 { 
+  background: 
+    /* Deep burgundy glass */
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.1) 100%),
+    /* Wine crystallization */
+    linear-gradient(45deg, transparent 45%, rgba(128,0,32,0.5) 47%, transparent 50%),
+    linear-gradient(-30deg, transparent 75%, rgba(0,0,0,0.4) 77%, transparent 80%),
+    /* Deep burgundy depth */
+    radial-gradient(ellipse at 25% 75%, rgba(0,0,0,0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 25%, rgba(128,0,32,0.3) 0%, transparent 45%),
+    /* Base burgundy */
+    linear-gradient(145deg, #4a1c1c 0%, #722f37 25%, #800020 50%, #722f37 75%, #4a1c1c 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 75% 75%, 75% 75%, 100% 100%;
+}
+
+/* Ultra-Realistic 3D Glass Hover Effects */
+.block-item:hover {
+  transform: perspective(150px) rotateX(-5deg) rotateY(5deg) scale(1.3);
+  border-color: #d4a574;
+  box-shadow: 
+    /* Enhanced outer glow with 3D depth */
+    0 8px 25px rgba(212, 165, 116, 0.8),
+    0 15px 40px rgba(212, 165, 116, 0.6),
+    0 25px 60px rgba(212, 165, 116, 0.4),
+    /* 3D shadow projection */
+    -8px 12px 30px rgba(0, 0, 0, 0.3),
+    -15px 20px 50px rgba(0, 0, 0, 0.2),
+    /* Enhanced inner glass depth */
+    inset 0 3px 6px rgba(255, 255, 255, 0.5),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+    inset 3px 0 6px rgba(255, 255, 255, 0.4),
+    inset -3px 0 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced glass reflection effect on hover */
+.block-item:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* Primary glass reflection */
+    linear-gradient(130deg, 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(255, 255, 255, 0.4) 15%, 
+      transparent 35%, 
+      transparent 65%, 
+      rgba(255, 255, 255, 0.3) 85%, 
+      rgba(255, 255, 255, 0.5) 100%),
+    /* Secondary reflection streak */
+    linear-gradient(40deg, 
+      transparent 25%, 
+      rgba(255, 255, 255, 0.9) 30%, 
+      rgba(255, 255, 255, 0.7) 35%, 
+      transparent 40%),
+    /* 3D depth highlight */
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 15%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.1) 100%);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+  animation: glass-shimmer-3d 2.5s infinite;
+}
+
+/* Enhanced 3D glass shimmer animation */
+@keyframes glass-shimmer-3d {
+  0%, 100% {
+    opacity: 0.9;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(1px) translateY(-0.5px) scale(1.01);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateX(0.5px) translateY(0.5px) scale(1.02);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(-0.5px) translateY(-0.5px) scale(1.01);
+  }
+}
+
+
+/* Glowing animation keyframes */
+@keyframes block-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 165, 116, 1);
+  }
+}
+
+/* Enhanced special glow effects for different colors with glass shimmer */
+.block-1:hover { 
+  box-shadow: 
+    0 0 20px rgba(139, 69, 19, 0.8),
+    0 0 30px rgba(75, 47, 31, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-2:hover { 
+  box-shadow: 
+    0 0 20px rgba(218, 165, 32, 0.8),
+    0 0 30px rgba(139, 115, 85, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-3:hover { 
+  box-shadow: 
+    0 0 20px rgba(139, 58, 58, 0.8),
+    0 0 30px rgba(160, 69, 69, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-4:hover { 
+  box-shadow: 
+    0 0 20px rgba(255, 127, 80, 0.8),
+    0 0 30px rgba(255, 140, 0, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.block-5:hover { 
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.8),
+    0 0 30px rgba(255, 191, 0, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.block-6:hover { 
+  box-shadow: 
+    0 0 20px rgba(205, 133, 63, 0.8),
+    0 0 30px rgba(210, 105, 30, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-7:hover { 
+  box-shadow: 
+    0 0 20px rgba(255, 255, 240, 0.8),
+    0 0 30px rgba(245, 245, 220, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.block-8:hover { 
+  box-shadow: 
+    0 0 20px rgba(47, 79, 79, 0.8),
+    0 0 30px rgba(54, 69, 79, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.block-9:hover { 
+  box-shadow: 
+    0 0 20px rgba(75, 47, 31, 0.8),
+    0 0 30px rgba(60, 47, 31, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.block-10:hover { 
+  box-shadow: 
+    0 0 20px rgba(160, 82, 45, 0.8),
+    0 0 30px rgba(205, 133, 63, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-11:hover { 
+  box-shadow: 
+    0 0 20px rgba(255, 191, 0, 0.8),
+    0 0 30px rgba(255, 215, 0, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.block-12:hover { 
+  box-shadow: 
+    0 0 20px rgba(184, 115, 51, 0.8),
+    0 0 30px rgba(205, 133, 63, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-13:hover { 
+  box-shadow: 
+    0 0 20px rgba(139, 69, 19, 0.8),
+    0 0 30px rgba(112, 66, 20, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-14:hover { 
+  box-shadow: 
+    0 0 20px rgba(245, 245, 220, 0.8),
+    0 0 30px rgba(255, 253, 208, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.block-15:hover { 
+  box-shadow: 
+    0 0 20px rgba(119, 136, 153, 0.8),
+    0 0 30px rgba(105, 105, 105, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.block-16:hover { 
+  box-shadow: 
+    0 0 20px rgba(128, 0, 32, 0.8),
+    0 0 30px rgba(114, 47, 55, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Bio Content */
@@ -655,6 +1137,24 @@ html {
   border-radius: 5px;
 }
 
+.resume-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border-radius: 3px;
+  border: 1px solid #d4a574;
+  background: rgba(212, 165, 116, 0.1);
+  transition: all 0.3s ease;
+}
+
+.resume-icon:hover {
+  background: rgba(212, 165, 116, 0.2);
+  transform: scale(1.05);
+}
+
 .link-thumb {
   width: 50px;
   height: 50px;
@@ -690,8 +1190,28 @@ html {
   margin-bottom: 20px;
 }
 
+.skill-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .skill-category {
   margin-bottom: 15px;
+  padding: 15px;
+  background: rgba(212, 165, 116, 0.05);
+  border-radius: 5px;
+  border-left: 3px solid #d4a574;
+}
+
+.category-title {
+  color: #d4a574;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: 'Remedy', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .skill-item {
@@ -957,7 +1477,7 @@ html {
 }
 
 .project-highlight {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 15px;
   background: rgba(212, 165, 116, 0.1);
   border-radius: 5px;
@@ -976,8 +1496,35 @@ html {
   color: #d4d4d4;
   font-size: 12px;
   line-height: 1.4;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-family: 'Cinderella ITC', Arial, sans-serif;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tech-tag {
+  background: rgba(212, 165, 116, 0.2);
+  color: #d4a574;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #d4a574;
+  transition: all 0.3s ease;
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+.tech-tag:hover {
+  background: rgba(212, 165, 116, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(212, 165, 116, 0.3);
 }
 
 /* Contact Content */
@@ -1065,6 +1612,16 @@ html {
     margin: 10px 0;
   }
   
+  .about-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .block-window {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
   
   .sidebar {
     position: static;
