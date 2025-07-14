@@ -1,502 +1,1086 @@
-/* GENERAL */
-/* TIP: DO NOT FORGET DIVS; can fuck up project */ 
+/* MAROON 5 STYLE WEBSITE - EDISON HONG */
+/* Complete recreation of Maroon 5's layout and styling */
 
-/*  This is a downloaded google font with different fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+/* Custom Font Declarations - Local Font Files */
+@font-face {
+  font-family: 'Remedy';
+  src: url('./assets/remedy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
-/* "*" targets the whole page and remains padding and margin;
-   must specifically put margins and paddingh for elements by putting 
-   it like this */ 
+@font-face {
+  font-family: 'Cinderella ITC';
+  src: url('./assets/cinderella-itc.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* RESET AND BASE STYLES */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* everything is basically Poppins font */ 
+/* CUSTOM SCROLLBAR - Different styles for different areas */
+
+/* Default scrollbar for main content area (right side) - thin and minimal */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(45, 15, 15, 0.8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 165, 116, 0.6);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(230, 184, 133, 0.8);
+}
+
+/* Special pixelated scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 16px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      #2d0f0f 0px,
+      #2d0f0f 2px,
+      #4a1c1c 2px,
+      #4a1c1c 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(212, 165, 116, 0.1) 2px,
+      rgba(212, 165, 116, 0.1) 4px
+    );
+  border: 1px solid #d4a574;
+  animation: track-flicker 4s infinite;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      #d4a574 0px,
+      #d4a574 3px,
+      #c19860 3px,
+      #c19860 6px,
+      #e6b885 6px,
+      #e6b885 9px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 1px,
+      rgba(255, 255, 255, 0.1) 1px,
+      rgba(255, 255, 255, 0.1) 2px
+    );
+  border: 1px solid #8b4513;
+  border-radius: 0;
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.3),
+    0 0 8px rgba(212, 165, 116, 0.4);
+  position: relative;
+  animation: thumb-pulse 2s infinite alternate;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  animation: thumb-pulse 1s infinite alternate, thumb-glitch 0.5s infinite;
+  box-shadow: 
+    inset 1px 1px 0 rgba(255, 255, 255, 0.4),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(212, 165, 116, 0.8),
+    0 0 20px rgba(230, 184, 133, 0.5);
+}
+
+.sidebar::-webkit-scrollbar-thumb:active {
+  animation: thumb-active 0.3s infinite;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      #f0c894 0px,
+      #f0c894 2px,
+      #e6b885 2px,
+      #e6b885 4px,
+      #d4a574 4px,
+      #d4a574 6px
+    );
+  transform: scaleY(0.95);
+}
+
+/* Sidebar scrollbar corner */
+.sidebar::-webkit-scrollbar-corner {
+  background: #2d0f0f;
+  border: 1px solid #d4a574;
+}
+
+/* Keyframe animations for 2000s pixelated effects */
+@keyframes track-flicker {
+  0%, 90%, 100% { 
+    opacity: 1; 
+  }
+  92%, 96% { 
+    opacity: 0.8; 
+  }
+  94% { 
+    opacity: 0.9; 
+  }
+}
+
+@keyframes thumb-pulse {
+  0% {
+    filter: brightness(1) contrast(1);
+  }
+  100% {
+    filter: brightness(1.2) contrast(1.1);
+  }
+}
+
+@keyframes thumb-glitch {
+  0%, 90%, 100% {
+    transform: translateX(0);
+  }
+  92% {
+    transform: translateX(1px);
+  }
+  94% {
+    transform: translateX(-1px);
+  }
+  96% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes thumb-active {
+  0%, 100% {
+    filter: brightness(1.3) hue-rotate(0deg);
+  }
+  50% {
+    filter: brightness(1.5) hue-rotate(10deg);
+  }
+}
+
+/* Custom scrollbar for content area with pixel trail effect */
+.content-area {
+  position: relative;
+}
+
+.content-area::before {
+  content: '';
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 100vh;
+  background: 
+    radial-gradient(circle 2px at 5px 20%, #d4a574 0%, transparent 50%),
+    radial-gradient(circle 1px at 15px 40%, #e6b885 0%, transparent 50%),
+    radial-gradient(circle 2px at 10px 60%, #c19860 0%, transparent 50%),
+    radial-gradient(circle 1px at 20px 80%, #d4a574 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1001;
+  pointer-events: none;
+  animation: pixel-float 3s ease-in-out infinite;
+}
+
+.content-area.scrolling::before {
+  opacity: 0.8;
+  animation: pixel-trail 0.8s ease-out, pixel-float 3s ease-in-out infinite;
+}
+
+@keyframes pixel-trail {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-15px) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-5px) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pixel-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Cinderella ITC', Arial, Verdana, sans-serif;
+  background: #1a0d0d;
+  color: #d4a574;
+  overflow-x: hidden;
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
 }
 
-/* when link clicked it will go to page smoothly and
- not direclty pop to the certain page out of nowhere */ 
 html {
-  scroll-behavior: smooth; /* if you want it to just pop to it then put "none */ 
+  scroll-behavior: smooth;
 }
 
-/* color of all paragraphs or "p" elements */ 
-p {
-  color: rgb(85, 85, 85);
-}
-
-/* TRANSITION */
-
-
-/* a = all the links, .btn = button; transitions between two states 
-and not instant */ 
-a,
-.btn {
-  transition: all 300ms ease;
-}
-
-/* DESKTOP NAV */
-/* targeting the nav itself from "nav id="desktop-nav" which is the navigation */ 
-nav,/* targets nav links */ 
-.nav-links {
-  display: flex; /* basically allows any manipulation of elements;
-                 before they were all next to eachother, now we can manipulate them in their container */ 
-}
-
-nav {
-  justify-content: space-around;
+/* TOP NAVIGATION BAR */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(180deg, #2d0f0f 0%, #4a1c1c 100%);
+  border-bottom: 2px solid #d4a574;
+  display: flex;
   align-items: center;
-  height: 17vh; /* 100vh takes up whole screen; 17vh takes up only 17% of the screen */ 
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-.nav-links {
-  gap: 2rem; /* puts space in between links */ 
-  list-style: none; /* removes bullet points */ 
-  font-size: 1.5rem; /* rem = pixels but like it; this increases font size*/ 
+/* Logo Section */
+.logo-section {
+  flex: 0 0 auto;
 }
 
-/* styles the links */ 
-a {
-  color: black;
+.main-logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #d4a574;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-left: 60px;
+}
+
+.nav-item {
+  color: #d4a574;
   text-decoration: none;
-  text-decoration-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 15px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  font-family: 'Remedy', Arial, sans-serif;
 }
 
-/* when hovering over the links; change to grey */ 
-a:hover {
-  color: grey; 
+.nav-item:hover {
+  background: rgba(212, 165, 116, 0.2);
+  color: #e6b885;
+}
+
+
+
+/* MAIN CONTAINER */
+.main-container {
+  margin-top: 80px;
+  display: flex;
+  min-height: calc(100vh - 80px);
+  position: relative;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 80px;
+  width: 250px;
+  height: calc(100vh - 80px);
+  background: linear-gradient(180deg, #2d0f0f 0%, #4a1c1c 100%);
+  border-right: 2px solid #d4a574;
+  padding: 20px 15px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-section {
+  margin-bottom: 25px;
+}
+
+.sidebar-title {
+  color: #d4a574;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d4a574;
+  padding-bottom: 5px;
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+/* Info Items */
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.info-icon {
+  color: #d4a574;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.info-text {
+  color: #d4d4d4;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.info-text strong {
+  color: #d4a574;
+}
+
+/* Portfolio Items */
+.portfolio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover {
+  opacity: 0.8;
+}
+
+.portfolio-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #d4a574;
+}
+
+.portfolio-text {
+  font-size: 11px;
+  color: #d4d4d4;
+  line-height: 1.3;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.portfolio-text strong {
+  color: #d4a574;
+}
+
+/* Music Items */
+.music-item {
+  margin-bottom: 10px;
+}
+
+.music-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #d4a574;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.music-thumb:hover {
+  transform: scale(1.05);
+}
+
+/* CONTENT AREA */
+.content-area {
+  margin-left: 250px;
+  flex: 1;
+  position: relative;
+  min-height: calc(100vh - 80px);
+  background: #000;
+}
+
+/* Background Image Layers - Different for each section */
+.bg-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* About Section Background */
+#about .bg-image-layer:nth-child(1) {
+  background-image: url('./assets/profile-pic.png');
+  background-position: right center;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* Experience Section Background */
+#experience .bg-image-layer:nth-child(1) {
+  background-image: url('./assets/about-pic.png');
+  background-position: left center;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Music Section Background */
+#music .bg-image-layer:nth-child(1) {
+  background-image: url('./assets/songs-about-jane.webp');
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Projects Section Background */
+#projects .bg-image-layer:nth-child(1) {
+  background-image: url('./assets/project-1.png');
+  background-position: center;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* Contact Section Background */
+#contact .bg-image-layer:nth-child(1) {
+  background-image: url('./assets/profile-pic.png');
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Flowing Overlay */
+.flowing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse 800px 400px at 30% 40%, rgba(139, 69, 19, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 300px at 70% 60%, rgba(165, 42, 42, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 400px 200px at 50% 80%, rgba(212, 165, 116, 0.2) 0%, transparent 50%);
+  z-index: 3;
+  animation: flowing-animation 15s ease-in-out infinite;
+}
+
+@keyframes flowing-animation {
+  0%, 100% { 
+    transform: translateX(0) translateY(0) scale(1); 
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translateX(30px) translateY(-20px) scale(1.1); 
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateX(-20px) translateY(30px) scale(0.9); 
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translateX(25px) translateY(-15px) scale(1.05); 
+    opacity: 0.7;
+  }
+}
+
+/* CONTENT SECTIONS */
+.content-section {
+  position: relative;
+  z-index: 10;
+  padding: 40px 30px;
+  min-height: 100vh;
+}
+
+/* Add background layers to each section */
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* About section background */
+#about::before {
+  background-image: url('./assets/new-profile-pic.jpg');
+  background-size: cover;
+  background-position: right center;
+  opacity: 0.6;
+}
+
+/* Experience section background */
+#experience::before {
+  background-image: url('./assets/new-about-pic.jpg');
+  background-size: cover;
+  background-position: left center;
+  opacity: 0.5;
+}
+
+/* Music section background */
+#music::before {
+  background-image: url('./assets/songs-about-jane.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+/* Projects section background */
+#projects::before {
+  background-image: url('./assets/project-1.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+}
+
+/* Contact section background */
+#contact::before {
+  background-image: url('./assets/new-profile-pic.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+.content-box {
+  background: rgba(45, 15, 15, 0.8);
+  border: 2px solid #d4a574;
+  border-radius: 8px;
+  padding: 25px;
+  margin: 20px 0;
+  backdrop-filter: blur(5px);
+  max-width: 600px;
+}
+
+.section-title {
+  color: #d4a574;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+.section-subtitle {
+  color: #e6b885;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+/* Bio Content */
+.bio-content {
+  margin-bottom: 20px;
+}
+
+.bio-list {
+  margin-bottom: 15px;
+}
+
+.bio-item {
+  color: #d4d4d4;
+  font-size: 13px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.bio-item strong {
+  color: #d4a574;
+}
+
+.bio-text {
+  color: #d4d4d4;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  text-align: justify;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* Portfolio Link */
+.portfolio-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 5px;
+}
+
+.link-thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #d4a574;
+}
+
+.link-text {
+  font-size: 12px;
+  color: #d4d4d4;
+  line-height: 1.4;
+}
+
+.link-text strong {
+  color: #d4a574;
+}
+
+.download-link {
+  color: #d4a574;
   text-decoration: underline;
-  text-underline-offset: 1rem; /* space out underline with the word-link */ 
-  text-decoration-color: rgb(181, 181, 181); /* color of the underline after hovered */ 
+  font-weight: bold;
 }
 
-.logo {
-  font-size: 2rem; /* makes the name Edison Hong bigger */ 
+.download-link:hover {
+  color: #e6b885;
 }
 
-.logo:hover {
-  cursor: default; /* makes the logo Edison Hong unhoverable */ 
+/* NEW SECTION STYLES */
+
+/* Skills Content */
+.skills-content {
+  margin-bottom: 20px;
 }
 
-/* HAMBURGER MENU */
+.skill-category {
+  margin-bottom: 15px;
+}
 
-/* when in a desktop view; hamburger does not show */ 
-#hamburger-nav {
+.skill-item {
+  color: #d4d4d4;
+  font-size: 13px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.skill-item strong {
+  color: #d4a574;
+}
+
+/* NEW MUSIC SECTION LAYOUT */
+.music-layout {
+  display: flex;
+  gap: 30px;
+  height: 80vh;
+  max-height: 600px;
+}
+
+/* Left Side: Track Listing */
+.track-listing-container {
+  flex: 1;
+  background: rgba(45, 15, 15, 0.8);
+  border: 2px solid #d4a574;
+  border-radius: 8px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+}
+
+.discography-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.discography-title {
+  color: #d4a574;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+.discography-subtitle {
+  color: #e6b885;
+  font-size: 12px;
+  font-style: italic;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+/* Album Selection Thumbnails */
+.album-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d4a574;
+}
+
+.album-thumb-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.album-thumb-item:hover {
+  transform: scale(1.1);
+}
+
+.album-thumb-select {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 2px solid #666;
+  transition: border-color 0.3s ease;
+}
+
+.album-thumb-item.active .album-thumb-select {
+  border-color: #d4a574;
+  box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+}
+
+/* Track List Display */
+.track-list-display {
+  position: relative;
+}
+
+.album-tracks {
   display: none;
 }
 
-.hamburger-menu {
-  position: relative;
-  display: inline-block;
-}
-
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  width: 30px;
-  cursor: pointer;
-}
-
-/* line of the hamburger and the dimensions of it */
-.hamburger-icon span {
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  transition: all 0.3 ease-in-out; /* makes hamburger menu turn into an X */
-}
-
-/* actual links seeing when hamburger opened*/ 
-.menu-links {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  width: fit-content;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3 ease-in-out;
-}
-
-/* all link styles for menu and alignment*/
-.menu-links a {
+.album-tracks.active {
   display: block;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: black;
-  text-decoration: none;
-  transition: all 0.3 ease-in-out;
 }
 
-/* removes bulletpoints in menu links*/
-.menu-links li {
+.album-track-title {
+  color: #d4a574;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-family: 'Remedy', Arial, sans-serif;
+  text-align: center;
+}
+
+.track-list {
   list-style: none;
 }
 
-/* max height of 300px for how big the area is*/
-.menu-links.open {
-  max-height: 300px;
-}
-
-/* first span element; transforming the line by rotating it into an X and 
-moving it slightly in both x and y directions*/
-.hamburger-icon.open span:first-child {
-  transform: rotate(45deg) translate(10px, 5px);
-}
-
-/* targets second line which means removing the first and second line completely*/ 
-.hamburger-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-icon.open span:last-child {
-  transform: rotate(-45deg) translate(10px, -5px);
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
-}
-
-.hamburger-icon span:first-child {
-  opacity: 1;
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
-}
-
-/* SECTIONS */
-
-section {
-  padding-top: 4vh; /* creates space between each section */ 
-  height: 96vh; /* makes up 100 vh total */ 
-  margin: 0 10rem;
-  box-sizing: border-box;
-  min-height: fit-content; /* ensures stuff is not overlapping each other */
-}
-
-.section-container {
-  display: flex;
-}
-
-/* PROFILE SECTION */
-
-/* sets all elements and styles in the class of profile*/
-#profile {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  height: 80vh;
-}
-
-/* adjusts the image of the profile*/
-.section__pic-container {
-  display: flex;
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
-}
-
-/* aligns all section text */
-.section__text {
-  align-self: center;
-  text-align: center;
-}
-
-/* aligns the "p"s in the section text and their font weight*/
-.section__text p {
-  font-weight: 600;
-}
-
-/* aligns Hello I am*/
-.section__text__p1 {
-  text-align: center;
-}
-
-/* aligns Georgia Tech */
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-/* this formats the Edison Hong */ 
-.title {
-  font-size: 3rem;
-  text-align: center;
-}
-
-/* this shows adjustment of where the LinkedIn and Github should be */ 
-#socials-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
-}
-
-/* ICONS */
-
-/* the two icons of linkedin and Github are shrunken and centered */ 
-.icon {
+.track-item {
+  color: #d4d4d4;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 3px 0;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
   cursor: pointer;
-  height: 2rem;
+  transition: color 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
-/* BUTTONS */
-/* shows how big the container of the buttons should be */ 
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+.track-item:hover {
+  color: #d4a574;
+  padding-left: 5px;
 }
 
-/* size of button */ 
-.btn {
-  font-weight: 600;
-  transition: all 300ms ease;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-}
-
-/* colors of the font of the buttons */ 
-.btn-color-1,
-.btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
-}
-
-/* when hovered, pointer becomes cursor */ 
-.btn-color-1:hover,
-.btn-color-2:hover {
-  cursor: pointer;
-}
-
-/* both buttons have the background being gray/black and main font white */ 
-.btn-color-1,
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
-}
-
-/* when hovered over resume the blackground turns black */ 
-.btn-color-1:hover {
-  background: rgb(0, 0, 0);
-}
-
-/* there is no background because it will default to gray */ 
-.btn-color-2 {
-  background: none;
-}
-
-/* when hovered over the text becomes white */ 
-.btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
-}
-
-/* gap between the buttons is 1 rem */ 
-.btn-container {
-  gap: 1rem;
-}
-
-/* ABOUT SECTION */
-
-/* relative position of all */ 
-#about {
-  position: relative;
-}
-
-.about-containers {
-  gap: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-.about-details-container {
-  justify-content: center;
-  flex-direction: column;
-}
-
-/* flexes both containers for movability*/ 
-.about-containers,
-.about-details-container {
-  display: flex;
-}
-
-/* picture border radius = defines how curved picture corners should be*/ 
-.about-pic {
-  border-radius: 2rem;
-}
-
-/* basically places the arrow -5rem from the right side of page
-it also places 2.5rem up from the bottom*/
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
-
-/* This is the bio that i have. 
-Just put some padding and align it with font color to make it look right*/
-.details-container {
-  padding: 1.5rem;
+/* Right Side: Large Album Cover */
+.album-cover-display {
   flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  text-align: center;
-}
-
-/* makes picture have space/gap from the text and reduces the height */
-.section-container {
-  gap: 4rem;
-  height: 80%;
-}
-
-/* makes picture container a set size */
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
-}
-
-/* EXPERIENCE SECTION */
-
-/* this makes sure that the arrow stays on the bottom right*/
-#experience {
-  position: relative;
-}
-
-/* styling "Front Development' font */
-.experience-sub-title {
-  color: rgb(85, 85, 85);
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-/* free movement */
-.experience-details-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-/* when it gets too big make sure to wrap the text so that 
- it looks more aesthetic (does not go out of container)
- 
- also includes black border
- */
-.article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
-}
-
-/* spaced out words and images*/ 
-article {
-  display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
-
-/* not clickable images */
-article .icon {
-  cursor: default;
-}
-
-/* PROJECTS SECTION */
-/* this is so the arrow can be on the bottom right*/ 
-#projects {
-  position: relative;
-}
-
-/* gives the project a border */ 
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
-}
-
-/* gives space and height to the project images*/ 
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
-
-/* title is black*/ 
-.project-title {
-  margin: 1rem;
-  color: black;
-}
-
-/* this creates the border? */ 
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
-}
-
-/* CONTACT */
-
-/* how tall it should be for the contact container*/ 
-#contact {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 70vh;
-}
-
-/* the container or border box of where the buttons are for linkedin and email*/ 
-.contact-info-upper-container {
-  display: flex;
-  justify-content: center;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
-  margin: 2rem auto;
-  padding: 0.5rem;
-}
-
-.contact-info-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem;
+  position: relative;
 }
 
-/* make font size bigger */ 
-.contact-info-container p {
-  font-size: larger;
+.large-album-cover {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #d4a574;
+  box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+  transition: all 0.5s ease;
 }
 
-/* not clickable image */ 
-.contact-icon {
-  cursor: default;
+.large-album-cover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(212, 165, 116, 0.5);
 }
 
-/* also not clikcable and adjusts the area to make it bigger for icon*/ 
-.email-icon {
-  height: 2.5rem;
+/* Animated Squiggle Shapes for Album Hover */
+.album-cover-display {
+  position: relative;
+  overflow: hidden;
 }
 
-/* FOOTER SECTION */
-
-/* how big the footer is and the margins and alignment of where it should be */ 
-footer {
-  height: 26vh;
-  margin: 0 1rem;
+.album-cover-display::before,
+.album-cover-display::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
-footer p {
+.album-cover-display::before {
+  background: linear-gradient(45deg, transparent 30%, #d4a574 50%, transparent 70%);
+  top: -50px;
+  left: -50px;
+  animation: squiggle1 4s ease-in-out infinite;
+}
+
+.album-cover-display::after {
+  background: linear-gradient(-45deg, transparent 30%, #8b4513 50%, transparent 70%);
+  bottom: -50px;
+  right: -50px;
+  animation: squiggle2 3s ease-in-out infinite reverse;
+}
+
+.album-cover-display:hover::before,
+.album-cover-display:hover::after {
+  opacity: 0.6;
+}
+
+/* Additional flowing shapes */
+.large-album-cover {
+  position: relative;
+  z-index: 2;
+}
+
+.large-album-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 100px 50px at 20% 30%, rgba(212, 165, 116, 0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 80px 40px at 80% 70%, rgba(139, 69, 19, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  z-index: 1;
+  animation: flow-shapes 6s ease-in-out infinite;
+}
+
+.large-album-cover:hover::before {
+  opacity: 1;
+}
+
+@keyframes squiggle1 {
+  0%, 100% { 
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+  25% { 
+    transform: translateX(30px) translateY(-20px) rotate(90deg) scale(1.2);
+  }
+  50% { 
+    transform: translateX(-20px) translateY(30px) rotate(180deg) scale(0.8);
+  }
+  75% { 
+    transform: translateX(25px) translateY(-15px) rotate(270deg) scale(1.1);
+  }
+}
+
+@keyframes squiggle2 {
+  0%, 100% { 
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+  33% { 
+    transform: translateX(-25px) translateY(20px) rotate(120deg) scale(1.3);
+  }
+  66% { 
+    transform: translateX(20px) translateY(-25px) rotate(240deg) scale(0.9);
+  }
+}
+
+@keyframes flow-shapes {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    transform: scale(1.1) rotate(180deg);
+    filter: hue-rotate(30deg);
+  }
+}
+
+/* Project Content */
+.project-content {
+  margin-bottom: 20px;
+}
+
+.project-highlight {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 5px;
+  border-left: 3px solid #d4a574;
+}
+
+.project-name {
+  color: #d4a574;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: 'Remedy', Arial, sans-serif;
+}
+
+.project-desc {
+  color: #d4d4d4;
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+}
+
+/* Contact Content */
+.contact-content {
+  margin-bottom: 20px;
+}
+
+.contact-method {
+  margin-bottom: 15px;
+}
+
+.contact-item {
+  color: #d4d4d4;
+  font-size: 13px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  font-family: 'Cinderella ITC', Arial, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.contact-item strong {
+  color: #d4a574;
+}
+
+/* BOTTOM NAVIGATION */
+.bottom-nav {
+  background: linear-gradient(180deg, #2d0f0f 0%, #4a1c1c 100%);
+  border-top: 2px solid #d4a574;
+  padding: 15px 20px;
   text-align: center;
+  margin-left: 250px;
+}
+
+.nav-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.nav-links-container a {
+  color: #d4a574;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-links-container a:hover {
+  color: #e6b885;
+}
+
+.copyright {
+  color: #888;
+  font-size: 11px;
+  margin: 0;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .content-area {
+    margin-left: 200px;
+  }
+  
+  .bottom-nav {
+    margin-left: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  
+  .nav-menu {
+    margin-left: 0;
+    margin: 10px 0;
+  }
+  
+  
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  
+  .content-area {
+    margin-left: 0;
+  }
+  
+  .bottom-nav {
+    margin-left: 0;
+  }
+  
+  .main-container {
+    flex-direction: column;
+  }
 }

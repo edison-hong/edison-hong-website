@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> <!-- includes links connected to the website-->
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" /> <!-- This links style.css to this document -->
-    <link rel="stylesheet" href="mediaqueries.css" /> <!-- This links mediaquieries.css to this document -->
+    <title>Edison Hong - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
   </head>
 
   <!-- Google tag (gtag.js) -->
@@ -15,397 +15,296 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-WHLT2FW67X');
   </script> 
 
   <body>
-    <nav id="desktop-nav"> <!-- Top Bar-->
-      <div class="logo">Edison Hong</div> <!-- Top Left Name Logo -->
-      
-      <!-- Navigation at the top; there are 4 categories
-        when clicked will lead to certain part of the page-->
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
-<!-- KEEP IN MIND: -->
-<!-- You can use bootstrap in the future to import better icons than ones used here-->
-
-    <!-- This is the hamburger menu or 3 line dropdown to access different pages-->
-    <nav id="hamburger-nav"> <!-- 3 line dropdown menu connected to the JS-->
-      <div class="logo">Edison Hong</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()"> <!-- This is attatched to the JS to open the menu-->
-          <span></span> <!-- Line 1 hamburger menu-->
-          <span></span> <!-- Line 2 hamburger menu-->
-          <span></span> <!-- Line 3 hamburger menu-->
-        </div>
-        <div class="menu-links"> <!-- actual links when opened; "onclick" means it can open and close-->
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-
-    <!-- PROFILE SECTION */ --> 
-    <section id="profile">
-       <!-- This is bascially the profile picture that comes up as soon as I open  -->
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Edison Hong profile picture" />
-      </div>
-      <!-- This section entails my introduction and fonts -->
-      <div class="section__text">
-        <p class="section__text__p1">Hello I am</p> <!-- p: intro-->
-        <h1 class="title">Edison Hong</h1> <!-- heading for my big name-->
-        <p class="section__text__p2">Georgia Tech Student</p>
-    
-    <!-- BUTTONS! */ --> 
-        <!-- This is the button for resume-->
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Resume.pdf')" 
-          > <!-- Resume button to pop up (keep in mind to match location of files)-->
-            Resume
-          </button>
-
-          <!-- Button 2 that goes to the contact info section of website-->
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-
-        <!--This links likedin and github profiles with clickable icon-->
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn profile"
-            class="icon"
-            onclick="location.href='//www.linkedin.com/in/edisonhong/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="Github profile"
-            class="icon"
-            onclick="location.href='//github.com/edison-hong'"
-          />
-        </div>
-      </div>
-
-    <!-- ABOUT SECTION */ --> 
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-    <!-- Profile Picture-->
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-    <!-- About details-->
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>Frontend Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-            <!-- Education -->
-              <h3>Education</h3>
-              <p>A.S. Associates Degree</p> 
-              <!-- To put more you could do "<p>A.S CS <br /> B.S CS </p>" this way the break, "br", is under it"-->
-            </div>
-          </div>
-
-          <!-- This is just the bio-->
-          <div class="text-container">
-            <p>
-                I'm an undergraduate Computer Science student at the Georgia Institute of Technology, 
-                specializing in Intelligence and Information Internetworks. 
-                After transferring and graduating from Delaware County Community College, 
-                I'm on track to graduate in May 2026. Passionate about unraveling the intricacies of code and its relationship with 
-                arrays and data, my goal is to automate functions that enhance data accuracy across diverse fields. 
-                Currently exploring internship opportunities and research collaborations to further develop and refine my skills in this exciting 
-                intersection of technology and information. 
-                Let's connect and explore the boundless possibilities of coding and data together!
-            </p>
-          </div>
-        </div>
+    <!-- TOP NAVIGATION BAR (Maroon 5 Style) -->
+    <div class="top-nav">
+      <!-- Logo Section -->
+      <div class="logo-section">
+        <div class="main-logo">EDISON HONG</div>
       </div>
       
-      <!-- Arrow on the side that takes user to the next page or down-->
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'" 
-      />
-      <!-- This bascially says that if clicked it will link to the experience page-->
+      <!-- Navigation Menu -->
+      <div class="nav-menu">
+        <a href="#about" class="nav-item">ABOUT</a>
+        <a href="#experience" class="nav-item">EXPERIENCE</a>
+        <a href="#music" class="nav-item">MUSIC</a>
+        <a href="#projects" class="nav-item">PROJECTS</a>
+        <a href="#contact" class="nav-item">CONTACT</a>
+      </div>
+      
+      
+    </div>
 
-    <!--EXPERIENCE SECTION-->
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experiences</h1>
-    
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <!-- This basically contains all of the elements in the box for my experience-->
-            <div class="article-container">
-              <article>
-                <!--Checkmark image insert-->
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <!--Language, Level-->
-                <div>
-                  <h3>HTML</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-
-              <!-- RESUSE!! ^^ for future instances when gained code languages or skills
-                ALL you change is the TEXT-->
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="main-container">
+      <!-- LEFT SIDEBAR -->
+      <div class="sidebar">
+        <!-- Current Info Section -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">CURRENT INFO</h3>
+          <div class="info-item">
+            <div class="info-icon">✦</div>
+            <div class="info-text">
+              <strong>Georgia Tech Computer Science Student</strong><br>
+              Currently seeking internship opportunities and exploring the intersection of technology and data.
             </div>
           </div>
-          
-          <!-- THIS IS TO MAKE A SECOND BOX (optional)
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PostgreSQL</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Node JS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Express JS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+          <div class="info-item">
+            <div class="info-icon">--</div>
+            <div class="info-text">
+              <strong>New Project Updates!</strong><br>
+              Check out my latest Chrome Extension for flight delays and upcoming web development projects!
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">--</div>
+            <div class="info-text">
+              <strong>Currently Learning</strong><br>
+              Diving deep into frontend development, data structures, and full-stack applications.
             </div>
           </div>
         </div>
-      </div>
-      --> 
 
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-   
-    <!--PROJECTS SECTION-->
-    </section>
-    <!--PROJECTS SECTION-->
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
+        <!-- Portfolio Section -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">PORTFOLIO</h3>
+          <div class="portfolio-item">
+            <img src="./assets/project-1.png" alt="Flight Delay Extension" class="portfolio-thumb">
+            <div class="portfolio-text">
+              <strong>CLICK TO VIEW</strong><br>
+              Flight Delay Chrome Extension
+            </div>
+          </div>
+        </div>
+
+        <!-- Music Taste Section -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">MUSIC TASTE</h3>
+          <div class="music-item">
+            <img src="./assets/songs-about-jane.webp" alt="Songs About Jane" class="music-thumb">
+          </div>
+          <div class="music-item">
+            <img src="./assets/heavier-things.jpg" alt="Heavier Things" class="music-thumb">
+          </div>
+          <div class="music-item">
+            <img src="./assets/room-for-squares.jpeg" alt="Room for Squares" class="music-thumb">
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT AREA -->
+      <div class="content-area">
+        <!-- Flowing Overlay Shapes -->
+        <div class="flowing-overlay"></div>
         
-        <!-- Project 1-->
-          <div class="details-container color-container">
-            <div class="article-container">
-            <!--Project 1 Image-->
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
+        <!-- Content Sections -->
+        <div class="content-section" id="about">
+          <div class="content-box">
+            <h2 class="section-title">OFFICIAL BIO</h2>
+            <h3 class="section-subtitle">BIO WRITTEN BY EDISON</h3>
+            <div class="bio-content">
+              <div class="bio-list">
+                <div class="bio-item">✦ <strong>Edison Hong</strong> - Student, Developer</div>
+                <div class="bio-item">Computer Science at Georgia Tech</div>
+                <div class="bio-item">Frontend Development Focus</div>
+                <div class="bio-item">Data & Algorithm Enthusiast</div>
+              </div>
+              
+              <p class="bio-text">
+                I'm an undergraduate Computer Science student at the Georgia Institute of Technology, 
+                specializing in Intelligence and Information Internetworks. After transferring and 
+                graduating from Delaware County Community College, I'm on track to graduate in May 2026. 
+                Passionate about unraveling the intricacies of code and its relationship with arrays and data, 
+                my goal is to automate functions that enhance data accuracy across diverse fields.
+              </p>
+              
+              <p class="bio-text">
+                Currently exploring internship opportunities and research collaborations to further develop 
+                and refine my skills in this exciting intersection of technology and information. 
+                Let's connect and explore the boundless possibilities of coding and data together!
+              </p>
             </div>
-
-            <h2 class="experience-sub-title project-title">Flight Delay Chrome Extension</h2>
             
-            <!-- OPTIONAL FOR FUTURE LINK USES! 
-            This is the first button to link to GitHub
-            Both buttons have hover effect because we have already made all buttons have same effect
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-            
-            Second button under the same class
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-              -->
+            <div class="portfolio-link">
+              <img src="./assets/Resume.pdf" alt="Resume" class="link-thumb">
+              <div class="link-text">
+                <strong>RESUME</strong><br>
+                If you haven't already<br>
+                gotten it, <a href="./assets/Resume.pdf" target="_blank" class="download-link">CLICK HERE</a>
+              </div>
             </div>
           </div>
-    
+        </div>
 
-          <!-- Future Project 2 (KEEP REUSING FOR MORE)-->
-          <!-- 
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+        <!-- Experience Section -->
+        <div class="content-section" id="experience">
+          <div class="content-box">
+            <h2 class="section-title">TECHNICAL SKILLS</h2>
+            <h3 class="section-subtitle">DEVELOPMENT EXPERIENCE</h3>
+            <div class="skills-content">
+              <div class="skill-category">
+                <div class="skill-item">✦ <strong>HTML/CSS</strong> - Frontend Fundamentals</div>
+                <div class="skill-item">JavaScript - Interactive Development</div>
+                <div class="skill-item">Python - Backend & Data Analysis</div>
+                <div class="skill-item">React - Component-Based Development</div>
+              </div>
+              
+              <p class="bio-text">
+                Currently expanding my technical expertise through hands-on projects and coursework at Georgia Tech. 
+                My focus is on creating clean, efficient code that solves real-world problems.
+              </p>
             </div>
           </div>
-          --> 
-
-    <!--Arrow for each section; remember-->
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    
-    <!--CONTACT SECTION-->
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Connect With Me</h1>
-      
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-        <!-- Email image icon-->
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <!--When people click the button it will email it. thats why it has mailto: instead of a blank-->
-          <p><a href="mailto:eddyheng6mail@gmail.com">eddyheng6@gmail.com</a></p>
         </div>
 
-        <!--Linkedin icon picture-->
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/edisonhong/">LinkedIn</a></p>
+        <!-- Music Section -->
+        <div class="content-section" id="music">
+          <div class="music-layout">
+            <!-- Left Side: Track Listing -->
+            <div class="track-listing-container">
+              <div class="discography-header">
+                <h3 class="discography-title">DISCOGRAPHY</h3>
+                <p class="discography-subtitle">click cover to see tracklisting</p>
+              </div>
+              
+              <!-- Album Selection -->
+              <div class="album-selector">
+                <div class="album-thumb-item" data-album="songs-about-jane">
+                  <img src="./assets/songs-about-jane.webp" alt="Songs About Jane" class="album-thumb-select">
+                </div>
+                <div class="album-thumb-item" data-album="heavier-things">
+                  <img src="./assets/heavier-things.jpg" alt="Heavier Things" class="album-thumb-select">
+                </div>
+                <div class="album-thumb-item" data-album="room-for-squares">
+                  <img src="./assets/room-for-squares.jpeg" alt="Room for Squares" class="album-thumb-select">
+                </div>
+              </div>
+
+              <!-- Track Listings -->
+              <div class="track-list-display">
+                <!-- Songs About Jane Tracklist -->
+                <div class="album-tracks active" id="songs-about-jane-tracks">
+                  <h4 class="album-track-title">Songs About Jane</h4>
+                  <div class="track-list">
+                    <div class="track-item">1. Harder To Breathe</div>
+                    <div class="track-item">2. This Love</div>
+                    <div class="track-item">3. Shiver</div>
+                    <div class="track-item">4. She Will Be Loved</div>
+                    <div class="track-item">5. Tangled</div>
+                    <div class="track-item">6. The Sun</div>
+                    <div class="track-item">7. Must Get Out</div>
+                    <div class="track-item">8. Sunday Morning</div>
+                    <div class="track-item">9. Secret</div>
+                    <div class="track-item">10. Through With You</div>
+                    <div class="track-item">11. Not Coming Home</div>
+                    <div class="track-item">12. Sweetest Goodbye</div>
+                  </div>
+                </div>
+
+                <!-- Heavier Things Tracklist -->
+                <div class="album-tracks" id="heavier-things-tracks">
+                  <h4 class="album-track-title">John Mayer - Heavier Things</h4>
+                  <div class="track-list">
+                    <div class="track-item">1. Clarity</div>
+                    <div class="track-item">2. Bigger Than My Body</div>
+                    <div class="track-item">3. Something's Missing</div>
+                    <div class="track-item">4. New Deep</div>
+                    <div class="track-item">5. Come Back to Bed</div>
+                    <div class="track-item">6. Home Life</div>
+                    <div class="track-item">7. Split Screen Sadness</div>
+                    <div class="track-item">8. Daughters</div>
+                    <div class="track-item">9. Only Heart</div>
+                    <div class="track-item">10. Wheel</div>
+                  </div>
+                </div>
+
+                <!-- Room for Squares Tracklist -->
+                <div class="album-tracks" id="room-for-squares-tracks">
+                  <h4 class="album-track-title">John Mayer - Room for Squares</h4>
+                  <div class="track-list">
+                    <div class="track-item">1. No Such Thing</div>
+                    <div class="track-item">2. Why Georgia</div>
+                    <div class="track-item">3. My Stupid Mouth</div>
+                    <div class="track-item">4. Your Body Is a Wonderland</div>
+                    <div class="track-item">5. Neon</div>
+                    <div class="track-item">6. City Love</div>
+                    <div class="track-item">7. 83</div>
+                    <div class="track-item">8. 3x5</div>
+                    <div class="track-item">9. Love Song for No One</div>
+                    <div class="track-item">10. Back to You</div>
+                    <div class="track-item">11. Great Indoors</div>
+                    <div class="track-item">12. St. Patrick's Day</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Large Album Cover -->
+            <div class="album-cover-display">
+              <img src="./assets/songs-about-jane.webp" alt="Current Album" class="large-album-cover" id="large-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="content-section" id="projects">
+          <div class="content-box">
+            <h2 class="section-title">FEATURED PROJECTS</h2>
+            <h3 class="section-subtitle">DEVELOPMENT PORTFOLIO</h3>
+            <div class="project-content">
+              <div class="project-highlight">
+                <h4 class="project-name">Flight Delay Chrome Extension</h4>
+                <p class="project-desc">
+                  A browser extension that helps travelers track flight delays and get real-time updates. 
+                  Built with JavaScript and integrates with airline APIs for accurate information.
+                </p>
+              </div>
+              
+              <p class="bio-text">
+                This project showcases my ability to create practical solutions for everyday problems, 
+                combining frontend development with API integration and user experience design.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="content-section" id="contact">
+          <div class="content-box">
+            <h2 class="section-title">GET IN TOUCH</h2>
+            <h3 class="section-subtitle">CONNECT WITH EDISON</h3>
+            <div class="contact-content">
+              <div class="contact-method">
+                <div class="contact-item">✦ <strong>Email:</strong> eddyheng6@gmail.com</div>
+                <div class="contact-item">LinkedIn: linkedin.com/in/edisonhong</div>
+                <div class="contact-item">GitHub: github.com/edison-hong</div>
+              </div>
+              
+              <p class="bio-text">
+                Always open to discussing new opportunities, collaborations, or just connecting with 
+                fellow developers and tech enthusiasts. Let's build something amazing together!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    
-    <!-- FOOTER SECTION-->
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <!-- This is the copyright of the page; 169 = copyright symbol-->
-      <p>Copyright &#169; 2024 Edison Hong. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script> <!-- This links script.js to this document -->
+    </div>
+
+    <!-- Bottom Navigation (if needed) -->
+    <div class="bottom-nav">
+      <div class="nav-links-container">
+        <a href="#about">ABOUT</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#music">MUSIC</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+      <p class="copyright">Copyright © 2024 Edison Hong. All Rights Reserved.</p>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
