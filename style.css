@@ -678,7 +678,7 @@ html {
   border-radius: 8px;
   padding: 25px;
   margin: 20px 0;
-  backdrop-filter: blur(1px);
+  backdrop-filter: none;
   max-width: 600px;
   /* 3D Glass Content Box Effect */
   box-shadow: 
@@ -747,7 +747,7 @@ html {
   border: 3px solid #d4a574;
   border-radius: 12px;
   padding: 20px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: none;
   position: relative;
   /* 3D Glass Window Effect */
   box-shadow: 
@@ -1381,7 +1381,7 @@ html {
   border: 2px solid #d4a574;
   border-radius: 8px;
   padding: 20px;
-  backdrop-filter: blur(1px);
+  backdrop-filter: none;
   overflow-y: auto;
   /* 3D Glass Track Container Effect */
   box-shadow: 
