@@ -673,7 +673,7 @@ html {
 }
 
 .content-box {
-  background: rgba(45, 15, 15, 0.8);
+  background: rgba(45, 15, 15, 0.95);
   border: 2px solid #d4a574;
   border-radius: 8px;
   padding: 25px;
