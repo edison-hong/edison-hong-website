@@ -88,10 +88,20 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     cursor: pointer;
+    animation: pictureFloat 4s ease-in-out infinite;
+}
+
+@keyframes pictureFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 .profile-pic:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-8px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     filter: brightness(1.1);
 }
@@ -106,10 +116,11 @@ body {
     color: #ED1C24;
     font-weight: 700;
     margin-bottom: 15px;
+    margin-top: 10px;
     display: inline-block;
     cursor: pointer;
     position: relative;
-    animation: gentleFloat 3s ease-in-out infinite;
+    animation: gentleFloat 4s ease-in-out infinite;
 }
 
 @keyframes gentleFloat {
@@ -117,7 +128,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
     }
 }
 
@@ -179,14 +190,36 @@ body {
 
 .social-links a {
     color: #ED1C24;
-    font-size: 1.3rem;
-    margin-right: 15px;
+    font-size: 1.6rem;
+    margin-right: 20px;
     transition: transform 0.3s ease;
     display: inline-block;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.social-links a:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.social-links a:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.social-links a:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 .social-links a:hover {
-    transform: scale(1.15);
+    transform: scale(1.2) translateY(-5px);
 }
 
 .qr-section {
@@ -194,8 +227,8 @@ body {
 }
 
 .qr-code {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     object-fit: contain;
     margin-bottom: 5px;
 }
