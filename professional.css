@@ -116,7 +116,7 @@ body {
     color: #ED1C24;
     font-weight: 700;
     margin-bottom: 15px;
-    margin-top: 30px;
+    margin-top: 50px;
     display: inline-block;
     cursor: pointer;
     position: relative;
@@ -223,7 +223,10 @@ body {
 }
 
 .qr-section {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .qr-code {
