@@ -116,7 +116,7 @@ body {
     color: #ED1C24;
     font-weight: 700;
     margin-bottom: 15px;
-    margin-top: 80px;
+    margin-top: 100px;
     display: inline-block;
     cursor: pointer;
     position: relative;
@@ -203,10 +203,10 @@ body {
 .qr-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-top: -30px;
+    align-items: center;
+    margin-top: -10px;
     margin-left: 0px;
-    transform: translateX(-20px);
+    transform: translateX(-40px);
 }
 
 .qr-code {
@@ -221,6 +221,7 @@ body {
     color: #666;
     font-style: italic;
     text-align: center;
+    margin-top: -5px;
 }
 
 @media (max-width: 768px) {
