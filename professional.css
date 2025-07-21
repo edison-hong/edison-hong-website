@@ -96,7 +96,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-6px);
     }
 }
 
@@ -194,32 +194,10 @@ body {
     margin-right: 25px;
     transition: transform 0.3s ease;
     display: inline-block;
-    animation: iconFloat 3s ease-in-out infinite;
-}
-
-.social-links a:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.social-links a:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.social-links a:nth-child(3) {
-    animation-delay: 1s;
-}
-
-@keyframes iconFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
 }
 
 .social-links a:hover {
-    transform: scale(1.2) translateY(-5px);
+    transform: scale(1.2);
 }
 
 .qr-section {
