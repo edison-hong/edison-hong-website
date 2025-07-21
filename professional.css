@@ -96,7 +96,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-12px);
     }
 }
 
@@ -116,7 +116,7 @@ body {
     color: #ED1C24;
     font-weight: 700;
     margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 30px;
     display: inline-block;
     cursor: pointer;
     position: relative;
@@ -190,8 +190,8 @@ body {
 
 .social-links a {
     color: #ED1C24;
-    font-size: 1.6rem;
-    margin-right: 20px;
+    font-size: 2.2rem;
+    margin-right: 25px;
     transition: transform 0.3s ease;
     display: inline-block;
     animation: iconFloat 3s ease-in-out infinite;
@@ -214,7 +214,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
     }
 }
 
@@ -227,8 +227,8 @@ body {
 }
 
 .qr-code {
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
     object-fit: contain;
     margin-bottom: 5px;
 }
