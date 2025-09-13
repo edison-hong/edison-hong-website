@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edison Hong - Projects</title>
+    <link rel="stylesheet" href="professionalprojects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <a href="professional.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <h1 class="page-title">My Projects</h1>
+    </div>
+    
+    <div class="projects-container">
+        <!-- SlideGen AI Project -->
+        <div class="project-card">
+            <div class="carousel" id="slidegen-carousel">
+                <div class="carousel-inner">
+                    <img src="slidegen1.png" alt="SlideGen AI Screenshot 1" class="carousel-image active">
+                    <img src="slidegen2.png" alt="SlideGen AI Screenshot 2" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide('slidegen-carousel', -1)">‹</button>
+                <button class="carousel-btn next" onclick="changeSlide('slidegen-carousel', 1)">›</button>
+            </div>
+            <div class="project-info">
+                <h3>SlideGen AI</h3>
+                <p class="project-description">
+                    • AI-powered presentation generator built exclusively for Mohawk Industries<br>
+                    • Creates professional PowerPoint presentations in minutes using natural language processing<br>
+                    • Integrated with corporate branding and templates for consistent enterprise presentations
+                </p>
+                <div class="tech-stack">
+                    <span class="tech">React</span>
+                    <span class="tech">Node.js</span>
+                    <span class="tech">OpenAI API</span>
+                    <span class="tech">PowerPoint API</span>
+                    <span class="tech">MongoDB</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vyzu Project -->
+        <div class="project-card">
+            <div class="carousel" id="vyzu-carousel">
+                <div class="carousel-inner">
+                    <img src="vyzu1.png" alt="Vyzu Screenshot 1" class="carousel-image active">
+                    <img src="vyzu2.png" alt="Vyzu Screenshot 2" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide('vyzu-carousel', -1)">‹</button>
+                <button class="carousel-btn next" onclick="changeSlide('vyzu-carousel', 1)">›</button>
+            </div>
+            <div class="project-info">
+                <h3>Vyzu</h3>
+                <p class="project-description">
+                    • Intelligent data analysis and visualization platform for educators and enterprises<br>
+                    • Transforms raw data into actionable insights with interactive dashboards<br>
+                    • Features real-time collaboration and automated report generation
+                </p>
+                <div class="tech-stack">
+                    <span class="tech">React</span>
+                    <span class="tech">D3.js</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">FastAPI</span>
+                    <span class="tech">PostgreSQL</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- plsgetjob.com Project -->
+        <div class="project-card">
+            <div class="carousel" id="plsgetjob-carousel">
+                <div class="carousel-inner">
+                    <img src="plsgetajob1.png" alt="plsgetjob Screenshot 1" class="carousel-image active">
+                    <img src="plsgetajob2.png" alt="plsgetjob Screenshot 2" class="carousel-image">
+                    <img src="plsgetajob3.png" alt="plsgetjob Screenshot 3" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide('plsgetjob-carousel', -1)">‹</button>
+                <button class="carousel-btn next" onclick="changeSlide('plsgetjob-carousel', 1)">›</button>
+            </div>
+            <div class="project-info">
+                <h3>plsgetjob.com</h3>
+                <p class="project-description">
+                    • Job application platform with Career Scrape and Jakeify tools for optimized resumes<br>
+                    • Converts resumes to match Jake Ryan's proven format for ATS optimization<br>
+                    • Features automated job matching and application tracking system
+                </p>
+                <div class="tech-stack">
+                    <span class="tech">Next.js</span>
+                    <span class="tech">TypeScript</span>
+                    <span class="tech">Tailwind CSS</span>
+                    <span class="tech">Supabase</span>
+                    <span class="tech">PDF Processing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function changeSlide(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const images = carousel.querySelectorAll('.carousel-image');
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            
+            images[currentIndex].classList.remove('active');
+            
+            currentIndex += direction;
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            
+            images[currentIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>
