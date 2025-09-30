@@ -115,23 +115,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Smooth fast mouse wheel scroll
-  let isScrolling = false;
+  // Smooth and controlled wheel scrolling
   window.addEventListener('wheel', function(e) {
     e.preventDefault();
 
-    if (!isScrolling) {
-      isScrolling = true;
-      const delta = e.deltaY * 5; // Smooth fast scroll
-      window.scrollBy({
-        top: delta,
-        behavior: 'auto'
-      });
+    // Very slow 0.3x speed for maximum control
+    const scrollSpeed = 0.3;
+    const scrollAmount = e.deltaY * scrollSpeed;
 
-      requestAnimationFrame(() => {
-        isScrolling = false;
-      });
-    }
+    // Use native smooth scrolling for better performance
+    window.scrollBy({
+      top: scrollAmount,
+      behavior: 'instant' // Instant for responsiveness
+    });
   }, { passive: false });
 
   // FADE IN ABOUT SECTION ON SCROLL
@@ -151,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', checkAboutVisibility);
   checkAboutVisibility(); // Check on load
 
-  // POLAROID IMAGES - ALL FRIENDS IMAGES (including new PNG files)
+  // POLAROID IMAGES - ALL FRIENDS IMAGES (only confirmed working formats)
   const friendsImages = [
     './friends/IMG_0056.JPG',
     './friends/IMG_0080.JPG',
@@ -162,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
     './friends/IMG_3941.png',
     './friends/IMG_4554.png',
     './friends/IMG_4577.jpg',
-    './friends/IMG_4745.HEIC.JPEG',
     './friends/IMG_5551.png',
     './friends/IMG_5577.JPG',
     './friends/IMG_6223.jpeg',
@@ -176,37 +171,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Set revolving polaroid images with proper spacing
   const revolvingPolaroids = document.querySelectorAll('.polaroid.revolving');
-  const totalPolaroids = revolvingPolaroids.length;
-  const angleStep = 360 / totalPolaroids;
 
-  // Process all polaroids immediately without delays
+  // First, validate which images can be loaded (exclude HEIC and empty)
+  const validImages = friendsImages.filter(imagePath =>
+    imagePath &&
+    !imagePath.includes('.HEIC') &&
+    imagePath.trim() !== ''
+  );
+
+  const totalImages = validImages.length;
+  let loadedCount = 0;
+
+  // Process polaroids with validated images
   revolvingPolaroids.forEach((polaroid, index) => {
-    if (friendsImages[index]) {
-      // Create image div
-      const imageDiv = document.createElement('div');
-      imageDiv.className = 'polaroid-image';
-      imageDiv.style.backgroundImage = `url('${friendsImages[index]}')`;
-
-      polaroid.appendChild(imageDiv);
-
-      // Set animation delay for rotation spacing
-      const delay = (index * (18 / totalPolaroids));
-      polaroid.style.animationDelay = `${delay}s`;
-
-      // Force immediate visibility
-      polaroid.style.opacity = '0.6';
-      polaroid.style.visibility = 'visible';
-      polaroid.style.display = 'block';
-
-      // Check if image fails to load and hide if needed
+    if (index < totalImages) {
+      // Preload image first to verify it loads
       const testImg = new Image();
+
+      testImg.onload = function() {
+        // Only create polaroid if image loads successfully
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'polaroid-image';
+        imageDiv.style.backgroundImage = `url('${validImages[index]}')`;
+        polaroid.appendChild(imageDiv);
+
+        // Calculate animation delay based on index
+        const animationDelay = -(index * (22 / totalImages));
+
+        // Apply animation with negative delay to start at correct position
+        polaroid.style.animation = `revolve 22s linear infinite`;
+        polaroid.style.animationDelay = `${animationDelay}s`;
+
+        // Force immediate visibility
+        polaroid.style.opacity = '1';
+        polaroid.style.visibility = 'visible';
+        polaroid.style.display = 'block';
+
+        loadedCount++;
+      };
+
       testImg.onerror = function() {
-        console.error('Failed to load:', friendsImages[index]);
+        // Hide polaroid if image fails to load
+        console.error('Failed to load image:', validImages[index]);
         polaroid.style.display = 'none';
       };
-      testImg.src = friendsImages[index];
+
+      testImg.src = validImages[index];
     } else {
-      // Hide polaroids without images
+      // Hide unused polaroids
       polaroid.style.display = 'none';
     }
   });
@@ -218,6 +230,12 @@ document.addEventListener('DOMContentLoaded', function() {
     imageDiv.className = 'polaroid-image';
     imageDiv.style.backgroundImage = `url('${myselfImage}')`;
     centerPolaroid.appendChild(imageDiv);
+
+    // Add "This is me :D" text below the image
+    const captionDiv = document.createElement('div');
+    captionDiv.className = 'polaroid-caption';
+    captionDiv.textContent = 'This is me :D';
+    centerPolaroid.appendChild(captionDiv);
   }
 
   // PHOTO MODAL FUNCTIONALITY

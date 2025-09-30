@@ -524,19 +524,21 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  animation: revolve 18s linear infinite;
+  animation: revolve 22s linear infinite;
   animation-fill-mode: both;
   transform-origin: 0 0;
-  opacity: 0.6 !important;
-  filter: brightness(0.7);
+  opacity: 1 !important;
+  filter: brightness(0.65);
   visibility: visible !important;
-  transition: none;
+  transition: filter 0.3s ease;
+  display: block !important;
 }
 
 .polaroid.revolving:hover {
-  opacity: 1 !important;
   filter: brightness(1);
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  transform: scale(1.1);
+  z-index: 100;
+  transition: filter 0.3s ease, transform 0.3s ease, z-index 0.3s ease;
 }
 
 /* Animation delays will be set via JavaScript */
@@ -563,13 +565,27 @@ body {
   z-index: 20;
 }
 
+.polaroid-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  width: 100%;
+  padding: 0 5px;
+  font-weight: 600;
+}
+
 
 @keyframes revolve {
   0% {
-    transform: rotate(0deg) translateX(260px) rotate(0deg) translate(-42px, -52px);
+    transform: rotate(0deg) translateX(210px) rotate(0deg) translate(-42px, -52px);
   }
   100% {
-    transform: rotate(360deg) translateX(260px) rotate(-360deg) translate(-42px, -52px);
+    transform: rotate(360deg) translateX(210px) rotate(-360deg) translate(-42px, -52px);
   }
 }
 
@@ -1231,6 +1247,16 @@ body {
   color: #fff;
 }
 
+.company-logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-right: 15px;
+  background: white;
+  padding: 5px;
+}
+
 .gt-logo {
   background: linear-gradient(135deg, #B3A369 0%, #003057 100%);
 }
@@ -1497,28 +1523,38 @@ body {
   position: relative;
   width: 300px;
   height: 350px;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateX(-10deg);
 }
 
 .cup-body {
   width: 250px;
   height: 250px;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%);
   border-radius: 50%;
   position: relative;
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.3),
+    0 20px 40px rgba(0,0,0,0.4),
+    0 10px 20px rgba(0,0,0,0.3),
+    inset 0 -10px 20px rgba(0,0,0,0.2),
     inset 0 -5px 10px rgba(0,0,0,0.1);
+  border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .coffee-surface {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  background: radial-gradient(ellipse at center, #d4a574 0%, #8b6139 100%);
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: radial-gradient(ellipse at center,
+    #d4a574 0%,
+    #b8935f 40%,
+    #8b6139 70%,
+    #6b4423 100%);
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .foam-art {
@@ -1526,94 +1562,145 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
-.leaf-pattern {
+/* Heart Latte Art */
+.heart-latte {
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.leaf-stem {
+.heart {
+  position: relative;
+  width: 80px;
+  height: 70px;
+  transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: '';
   position: absolute;
-  width: 2px;
+  width: 52px;
   height: 80px;
-  background: linear-gradient(to bottom, #f5e6d3, #e8d5c4);
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%);
+  background: linear-gradient(135deg,
+    #f9f3ed 0%,
+    #f5e6d3 50%,
+    #e8d5c4 100%);
+  border-radius: 50px 50px 0 0;
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.5),
+    0 1px 2px rgba(139,97,57,0.3);
 }
 
-.leaf-segment {
+.heart::before {
+  left: 26px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* Steam Effects */
+.steam-container {
   position: absolute;
-  background: linear-gradient(135deg, #f5e6d3, #e8d5c4);
-  border-radius: 0 100% 0 100%;
-  opacity: 0.9;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 120px;
+  pointer-events: none;
 }
 
-.seg1 {
+.steam {
+  position: absolute;
   width: 30px;
-  height: 20px;
-  left: 48%;
-  top: 25%;
-  transform: rotate(-45deg);
+  height: 60px;
+  background: linear-gradient(to top,
+    transparent,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.15),
+    transparent);
+  filter: blur(8px);
+  opacity: 0;
 }
 
-.seg2 {
-  width: 35px;
-  height: 25px;
-  right: 48%;
-  top: 25%;
-  transform: rotate(45deg) scaleX(-1);
+.steam1 {
+  left: 20%;
+  animation: steamRise 4s ease-in-out infinite;
 }
 
-.seg3 {
-  width: 40px;
-  height: 30px;
-  left: 45%;
-  top: 35%;
-  transform: rotate(-45deg);
+.steam2 {
+  left: 50%;
+  animation: steamRise 4s ease-in-out infinite 1.3s;
 }
 
-.seg4 {
-  width: 40px;
-  height: 30px;
-  right: 45%;
-  top: 35%;
-  transform: rotate(45deg) scaleX(-1);
+.steam3 {
+  left: 70%;
+  animation: steamRise 4s ease-in-out infinite 2.6s;
 }
 
-.seg5 {
-  width: 45px;
-  height: 35px;
-  left: 42%;
-  top: 45%;
-  transform: rotate(-45deg);
+@keyframes steamRise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleY(0.5);
+  }
+  20% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-20px) scaleY(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scaleY(2) scaleX(1.5);
+  }
 }
 
 .cup-handle {
   position: absolute;
   width: 60px;
   height: 80px;
-  border: 12px solid #e0e0e0;
+  border: 10px solid;
+  border-color: #e8e8e8 #d0d0d0 #c0c0c0 transparent;
   border-left: none;
   border-radius: 0 40px 40px 0;
-  right: -45px;
-  top: 80px;
-  box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+  right: -35px;
+  top: 85px;
+  box-shadow:
+    5px 5px 15px rgba(0,0,0,0.3),
+    inset -2px 0 5px rgba(0,0,0,0.1);
 }
 
 .cup-saucer {
   position: absolute;
   width: 320px;
-  height: 60px;
-  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+  height: 70px;
+  background: linear-gradient(to bottom,
+    #ffffff 0%,
+    #f5f5f5 30%,
+    #e0e0e0 60%,
+    #d0d0d0 100%);
   border-radius: 50%;
-  bottom: 0;
+  bottom: -10px;
   left: -35px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.4),
+    0 3px 10px rgba(0,0,0,0.3),
+    inset 0 2px 3px rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: perspective(500px) rotateX(20deg);
 }
 
 .coffee-details {
@@ -1636,6 +1723,15 @@ body {
   background: rgba(255,255,255,0.05);
   border-radius: 8px;
   border-left: 3px solid #d4a574;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.equipment-item:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(212, 165, 116, 0.2);
+  border-left-width: 5px;
 }
 
 .equipment-item h4 {
