@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edison Hong - Music</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="top-nav">
+    <div class="logo">Edison Hong</div>
+    <div class="nav-right">
+      <div class="menu-toggle" id="menuToggle">Menu</div>
+      <div class="contact-btn" id="contactBtn">Contact</div>
+    </div>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="index.html">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="music.html">Music</a>
+      <a href="hobbies.html">Hobbies</a>
+    </div>
+    <div class="contact-popup" id="contactPopup">
+      <a href="https://linkedin.com/in/edisonhong" target="_blank">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/edison-hong" target="_blank">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:eddyheng6@gmail.com">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
+        Email
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content page-content">
+    <section class="music-section">
+      <div class="section-header">
+        <h1 class="page-title">Favorite Albums</h1>
+        <p class="page-subtitle">Click on any album to explore</p>
+      </div>
+
+      <!-- Album Polaroids -->
+      <div class="album-polaroids">
+        <div class="album-polaroid" data-album="maroon5">
+          <img src="./assets/songs-about-jane.webp" alt="Songs About Jane" class="album-cover">
+          <div class="album-label">Songs About Jane</div>
+        </div>
+
+        <div class="album-polaroid" data-album="heavier">
+          <img src="./assets/heavier-things.jpg" alt="Heavier Things" class="album-cover">
+          <div class="album-label">Heavier Things</div>
+        </div>
+
+        <div class="album-polaroid" data-album="room">
+          <img src="./assets/room-for-squares.jpeg" alt="Room for Squares" class="album-cover">
+          <div class="album-label">Room for Squares</div>
+        </div>
+      </div>
+
+      <!-- Album Details (Hidden by default) -->
+      <div id="albumDetails" class="album-details">
+        <span class="close-details">&times;</span>
+
+        <!-- Maroon 5 Details -->
+        <div id="maroon5" class="album-detail-content" style="display: none;">
+          <div class="detail-header">
+            <img src="./assets/songs-about-jane.webp" alt="Songs About Jane" class="detail-cover">
+            <div class="detail-info">
+              <h2>Songs About Jane</h2>
+              <h3>Maroon 5 • 2002</h3>
+              <p>One of the greatest albums of the 2000s. This album defined a generation with its perfect blend of pop, rock, and soul.</p>
+            </div>
+          </div>
+          <div class="tracklist-grid">
+            <ol>
+              <li>Harder To Breathe</li>
+              <li>This Love</li>
+              <li>Shiver</li>
+              <li>She Will Be Loved</li>
+              <li>Tangled</li>
+              <li>The Sun</li>
+              <li>Must Get Out</li>
+              <li>Sunday Morning</li>
+              <li>Secret</li>
+              <li>Through With You</li>
+              <li>Not Coming Home</li>
+              <li>Sweetest Goodbye</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- John Mayer Heavier Things Details -->
+        <div id="heavier" class="album-detail-content" style="display: none;">
+          <div class="detail-header">
+            <img src="./assets/heavier-things.jpg" alt="Heavier Things" class="detail-cover">
+            <div class="detail-info">
+              <h2>Heavier Things</h2>
+              <h3>John Mayer • 2003</h3>
+              <p>John Mayer's sophomore album showcasing his growth as a songwriter. "Daughters" won Grammy Awards for Song of the Year.</p>
+            </div>
+          </div>
+          <div class="tracklist-grid">
+            <ol>
+              <li>Clarity</li>
+              <li>Bigger Than My Body</li>
+              <li>Something's Missing</li>
+              <li>New Deep</li>
+              <li>Come Back to Bed</li>
+              <li>Home Life</li>
+              <li>Split Screen Sadness</li>
+              <li>Daughters</li>
+              <li>Only Heart</li>
+              <li>Wheel</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- John Mayer Room for Squares Details -->
+        <div id="room" class="album-detail-content" style="display: none;">
+          <div class="detail-header">
+            <img src="./assets/room-for-squares.jpeg" alt="Room for Squares" class="detail-cover">
+            <div class="detail-info">
+              <h2>Room for Squares</h2>
+              <h3>John Mayer • 2001</h3>
+              <p>John Mayer's debut studio album featuring hits like "No Such Thing" and "Your Body Is a Wonderland."</p>
+            </div>
+          </div>
+          <div class="tracklist-grid">
+            <ol>
+              <li>No Such Thing</li>
+              <li>Why Georgia</li>
+              <li>My Stupid Mouth</li>
+              <li>Your Body Is a Wonderland</li>
+              <li>Neon</li>
+              <li>City Love</li>
+              <li>83</li>
+              <li>3x5</li>
+              <li>Love Song for No One</li>
+              <li>Back to You</li>
+              <li>Great Indoors</li>
+              <li>St. Patrick's Day</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="music-philosophy">
+        <h2>Why These Albums Matter</h2>
+        <p>
+          Music has always been more than just entertainment to me—it's a form of expression,
+          a way to connect with emotions, and a source of inspiration. These three albums represent
+          different aspects of what I value in music: genuine emotion, technical skill, and timeless
+          songwriting. They've been constant companions throughout my journey in computer science,
+          providing the perfect soundtrack for late-night coding sessions and creative problem-solving.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
