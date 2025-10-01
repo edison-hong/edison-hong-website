@@ -5,13 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edison Hong - Projects</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <!-- TOP NAVIGATION BAR -->
   <nav class="top-nav">
-    <div class="logo">Edison Hong</div>
+    <div class="logo">
+      <span class="logo-text">Edison Hong</span>
+    </div>
     <div class="nav-right">
       <div class="menu-toggle" id="menuToggle">Menu</div>
       <div class="contact-btn" id="contactBtn">Contact</div>
@@ -69,8 +72,8 @@
         </div>
 
         <div class="project-polaroid" data-project="plsgetajob">
-          <img src="plsgetajob1.png" alt="Please Get a Job" class="project-thumbnail">
-          <div class="project-label">Please Get a Job</div>
+          <img src="plsgetajob1.png" alt="PlsGetAJob.com" class="project-thumbnail">
+          <div class="project-label">PlsGetAJob.com</div>
         </div>
       </div>
 
@@ -82,9 +85,13 @@
         <div id="slidegen" class="project-detail" style="display: none;">
           <div class="project-carousel">
             <h2>SlideGen AI - Presentation Generator</h2>
-            <div class="project-images">
-              <img src="slidegen1.png" alt="SlideGen Screenshot 1">
-              <img src="slidegen2.png" alt="SlideGen Screenshot 2">
+            <div class="project-images-gallery">
+              <button class="gallery-prev">&larr;</button>
+              <div class="project-images">
+                <img src="slidegen1.png" alt="SlideGen Screenshot 1" class="gallery-image active">
+                <img src="slidegen2.png" alt="SlideGen Screenshot 2" class="gallery-image">
+              </div>
+              <button class="gallery-next">&rarr;</button>
             </div>
             <div class="project-tech-stack">
               <span class="tech-tag">React</span>
@@ -110,9 +117,13 @@
         <div id="vyzu" class="project-detail" style="display: none;">
           <div class="project-carousel">
             <h2>Vyzu - Visual Analytics Platform</h2>
-            <div class="project-images">
-              <img src="vyzu1.png" alt="Vyzu Screenshot 1">
-              <img src="vyzu2.png" alt="Vyzu Screenshot 2">
+            <div class="project-images-gallery">
+              <button class="gallery-prev">&larr;</button>
+              <div class="project-images">
+                <img src="vyzu1.png" alt="Vyzu Screenshot 1" class="gallery-image active">
+                <img src="vyzu2.png" alt="Vyzu Screenshot 2" class="gallery-image">
+              </div>
+              <button class="gallery-next">&rarr;</button>
             </div>
             <div class="project-tech-stack">
               <span class="tech-tag">Python</span>
@@ -134,14 +145,19 @@
           </div>
         </div>
 
-        <!-- Please Get a Job Details -->
+        <!-- PlsGetAJob.com Details -->
         <div id="plsgetajob" class="project-detail" style="display: none;">
           <div class="project-carousel">
-            <h2>Please Get a Job - Job Search Platform</h2>
-            <div class="project-images">
-              <img src="plsgetajob1.png" alt="Please Get a Job Screenshot 1">
-              <img src="plsgetajob2.png" alt="Please Get a Job Screenshot 2">
-              <img src="plsgetajob3.png" alt="Please Get a Job Screenshot 3">
+            <h2>PlsGetAJob.com - Job Search Platform</h2>
+            <a href="https://plsgetajob.com" target="_blank" class="project-link">Visit PlsGetAJob.com →</a>
+            <div class="project-images-gallery">
+              <button class="gallery-prev">&larr;</button>
+              <div class="project-images">
+                <img src="plsgetajob1.png" alt="Please Get a Job Screenshot 1" class="gallery-image active">
+                <img src="plsgetajob2.png" alt="Please Get a Job Screenshot 2" class="gallery-image">
+                <img src="plsgetajob3.png" alt="Please Get a Job Screenshot 3" class="gallery-image">
+              </div>
+              <button class="gallery-next">&rarr;</button>
             </div>
             <div class="project-tech-stack">
               <span class="tech-tag">React</span>

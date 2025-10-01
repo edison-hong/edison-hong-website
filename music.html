@@ -5,13 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edison Hong - Music</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <!-- TOP NAVIGATION BAR -->
   <nav class="top-nav">
-    <div class="logo">Edison Hong</div>
+    <div class="logo">
+      <span class="logo-text">Edison Hong</span>
+    </div>
     <div class="nav-right">
       <div class="menu-toggle" id="menuToggle">Menu</div>
       <div class="contact-btn" id="contactBtn">Contact</div>
@@ -43,6 +46,14 @@
   <!-- MAIN CONTENT -->
   <main class="main-content page-content">
     <section class="music-section">
+      <!-- Video Background -->
+      <div class="video-background">
+        <video autoplay muted loop playsinline>
+          <source src="lightbluebackground.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay music-overlay"></div>
+      </div>
+
       <div class="section-header">
         <h1 class="page-title">Favorite Albums</h1>
         <p class="page-subtitle">Click on any album to explore</p>

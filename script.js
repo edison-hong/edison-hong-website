@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  // PAGE TRANSITION ON NAVIGATION
+  const links = document.querySelectorAll('a[href]:not([target="_blank"])');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && !href.startsWith('#') && !href.startsWith('mailto:')) {
+        e.preventDefault();
+        document.body.classList.add('page-transition');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 400);
+      }
+    });
+  });
+
   // CUSTOM CURSOR
   const cursor = document.createElement('div');
   cursor.classList.add('cursor-dot');
@@ -115,8 +130,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Smooth and controlled wheel scrolling
+  // Smooth and controlled wheel scrolling (only on main page, not in modals)
   window.addEventListener('wheel', function(e) {
+    // Don't prevent scroll if we're in a modal
+    const projectModal = document.getElementById('projectDetails');
+    if (projectModal && projectModal.classList.contains('active')) {
+      return; // Let the modal handle its own scrolling
+    }
+
     e.preventDefault();
 
     // Very slow 0.3x speed for maximum control
@@ -343,11 +364,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (projectDetailsModal) {
     projectDetailsModal.addEventListener('click', function(e) {
+      // Close only if clicking on the modal backdrop (not on content)
       if (e.target === projectDetailsModal) {
         projectDetailsModal.classList.remove('active');
       }
     });
+
+    // Prevent modal from closing when clicking inside content
+    const projectDetails = document.querySelectorAll('.project-detail');
+    projectDetails.forEach(detail => {
+      detail.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    });
   }
+
+  // IMAGE GALLERY NAVIGATION
+  const galleries = document.querySelectorAll('.project-images-gallery');
+
+  galleries.forEach(gallery => {
+    const images = gallery.querySelectorAll('.gallery-image');
+    const prevBtn = gallery.querySelector('.gallery-prev');
+    const nextBtn = gallery.querySelector('.gallery-next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) {
+          img.classList.add('active');
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      });
+    }
+
+    // Click on image to view fullscreen
+    images.forEach((img, index) => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      });
+    });
+  });
 
 
 });

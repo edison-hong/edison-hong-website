@@ -38,6 +38,29 @@ body {
   color: #fff;
   overflow-x: hidden;
   cursor: none;
+  animation: pageLoad 0.8s ease;
+}
+
+body.page-transition {
+  animation: pageTransitionOut 0.4s ease forwards;
+}
+
+@keyframes pageLoad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pageTransitionOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* CUSTOM DOT CURSOR */
@@ -88,6 +111,28 @@ body {
   letter-spacing: 0.5px;
   color: #fff;
   font-family: 'CriqueGrotesk', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.1);
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 .nav-right {
@@ -452,11 +497,11 @@ body {
 
 /* Video Background */
 .video-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: -1;
   overflow: hidden;
 }
@@ -481,6 +526,10 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
   pointer-events: none;
+}
+
+.music-overlay {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .polaroids-container {
@@ -594,6 +643,23 @@ body {
   text-align: center;
   max-width: 600px;
   padding: 0 20px;
+}
+
+.intro-text.fade-in {
+  opacity: 0;
+  animation: fadeInUp 2.5s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .intro-text h2 {
@@ -969,7 +1035,7 @@ body {
 }
 
 .music-philosophy {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1170,7 +1236,7 @@ body {
 .resume-section {
   max-width: 900px;
   margin: 0 auto;
-  padding: 120px 40px 60px;
+  padding: 0px 40px 60px;
 }
 
 .resume-header {
@@ -1339,7 +1405,7 @@ body {
 
 /* MUSIC PAGE STYLING */
 .music-section {
-  padding: 120px 40px 60px;
+  padding: 0px 40px 60px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1494,13 +1560,18 @@ body {
 
 /* HOBBIES PAGE WITH LATTE ART */
 .hobbies-section {
-  padding: 120px 40px 60px;
+  padding: 0px 40px 60px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.hobbies-section .fade-in-scroll {
+  opacity: 1;
+  animation: fadeInUp 1s ease;
+}
+
 .coffee-showcase {
-  margin: 60px 0;
+  margin: 20px 0 40px;
 }
 
 .section-title {
@@ -1525,6 +1596,23 @@ body {
   height: 350px;
   transform-style: preserve-3d;
   transform: perspective(800px) rotateX(-10deg);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  animation: floatCup 3s ease-in-out infinite;
+}
+
+.latte-cup:hover {
+  transform: perspective(800px) rotateX(-10deg) scale(1.05);
+  animation: none;
+}
+
+@keyframes floatCup {
+  0%, 100% {
+    transform: perspective(800px) rotateX(-10deg) translateY(0);
+  }
+  50% {
+    transform: perspective(800px) rotateX(-10deg) translateY(-10px);
+  }
 }
 
 .cup-body {
@@ -1579,34 +1667,34 @@ body {
 .heart {
   position: relative;
   width: 80px;
-  height: 70px;
-  transform: rotate(-45deg);
+  height: 80px;
 }
 
 .heart::before,
 .heart::after {
   content: '';
   position: absolute;
-  width: 52px;
-  height: 80px;
+  width: 40px;
+  height: 64px;
   background: linear-gradient(135deg,
     #f9f3ed 0%,
-    #f5e6d3 50%,
-    #e8d5c4 100%);
-  border-radius: 50px 50px 0 0;
+    #f5e6d3 30%,
+    #e8d5c4 70%,
+    #d9c5b4 100%);
+  border-radius: 40px 40px 0 0;
   box-shadow:
-    inset 0 2px 3px rgba(255,255,255,0.5),
-    0 1px 2px rgba(139,97,57,0.3);
+    inset 0 2px 5px rgba(255,255,255,0.6),
+    0 2px 4px rgba(139,97,57,0.4);
 }
 
 .heart::before {
-  left: 26px;
+  left: 40px;
   transform: rotate(-45deg);
   transform-origin: 0 100%;
 }
 
 .heart::after {
-  left: 0;
+  left: 0px;
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
@@ -1670,37 +1758,21 @@ body {
 
 .cup-handle {
   position: absolute;
-  width: 60px;
-  height: 80px;
+  width: 50px;
+  height: 70px;
   border: 10px solid;
   border-color: #e8e8e8 #d0d0d0 #c0c0c0 transparent;
   border-left: none;
-  border-radius: 0 40px 40px 0;
-  right: -35px;
-  top: 85px;
+  border-radius: 0 35px 35px 0;
+  right: -5px;
+  top: 90px;
   box-shadow:
     5px 5px 15px rgba(0,0,0,0.3),
     inset -2px 0 5px rgba(0,0,0,0.1);
 }
 
 .cup-saucer {
-  position: absolute;
-  width: 320px;
-  height: 70px;
-  background: linear-gradient(to bottom,
-    #ffffff 0%,
-    #f5f5f5 30%,
-    #e0e0e0 60%,
-    #d0d0d0 100%);
-  border-radius: 50%;
-  bottom: -10px;
-  left: -35px;
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.4),
-    0 3px 10px rgba(0,0,0,0.3),
-    inset 0 2px 3px rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.5);
-  transform: perspective(500px) rotateX(20deg);
+  display: none;
 }
 
 .coffee-details {
@@ -1755,10 +1827,19 @@ body {
 }
 
 .coffee-philosophy {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border-left: 3px solid #d4a574;
+}
+
+.coffee-philosophy p {
   font-size: 16px;
   line-height: 1.8;
   color: #ccc;
   font-style: italic;
+  margin: 0;
 }
 
 .hobbies-grid {
@@ -1921,11 +2002,16 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.98);
   z-index: 6000;
-  padding: 60px 40px;
-  overflow-y: auto;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-details-modal * {
+  cursor: default !important;
 }
 
 .project-details-modal.active {
@@ -1933,24 +2019,16 @@ body {
 }
 
 .close-project-modal {
-  position: absolute;
-  top: 30px;
-  right: 50px;
-  font-size: 40px;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-  z-index: 6001;
-}
-
-.close-project-modal:hover {
-  color: #888;
+  display: none;
 }
 
 .project-detail {
   max-width: 900px;
   margin: 0 auto;
-  padding-top: 60px;
+  padding: 60px 20px 100px;
+  cursor: default !important;
+  pointer-events: all;
+  min-height: 100vh;
 }
 
 .project-carousel h2 {
@@ -1958,6 +2036,24 @@ body {
   margin-bottom: 20px;
   font-weight: 500;
   color: #fff;
+}
+
+.project-link {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
 }
 
 .project-tech-stack {
@@ -2012,17 +2108,61 @@ body {
   color: #888;
 }
 
-.project-images {
+.project-images-gallery {
+  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
   gap: 20px;
-  margin-bottom: 30px;
-  overflow-x: auto;
-  padding: 10px 0;
+  margin-bottom: 20px;
+  padding: 0;
 }
 
-.project-images img {
-  max-width: 400px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+.project-images {
+  position: relative;
+  width: 900px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #000;
+}
+
+.gallery-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  clip-path: inset(0 round 15px);
+}
+
+.gallery-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.gallery-prev,
+.gallery-next {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+  color: #ccc;
+  transform: scale(1.15);
 }
